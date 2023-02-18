@@ -15,6 +15,10 @@ namespace Dating_app
             {
                 Label1.Text = Request.Cookies["Username"].Value.ToString();
             }
+            else
+            {
+                Response.Redirect("Tindr.aspx");
+            }
         }
     }
 }
