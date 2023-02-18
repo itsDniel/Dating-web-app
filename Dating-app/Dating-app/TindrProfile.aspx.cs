@@ -11,7 +11,10 @@ namespace Dating_app
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(Request.Cookies["Username"] != null)
+            {
+                Label1.Text = Request.Cookies["Username"].Value.ToString();
+            }
         }
     }
 }

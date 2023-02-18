@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TindrLogin.aspx.cs" Inherits="Dating_app.Tindr" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Tindr.aspx.cs" Inherits="Dating_app.Tindr" %>
 
 <!DOCTYPE html>
 
@@ -43,8 +43,9 @@
          <asp:TextBox ID="fNametxt" runat="server" style="z-index: 1; left: 103px; top: 95px; position: absolute"></asp:TextBox>
          <asp:TextBox ID="lNametxt" runat="server" style="z-index: 1; left: 107px; top: 128px; position: absolute"></asp:TextBox>
          <asp:TextBox ID="emailtxt" runat="server" style="z-index: 1; left: 104px; top: 175px; position: absolute"></asp:TextBox>
-         <asp:TextBox ID="userCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 222px; position: absolute"></asp:TextBox>
+         <asp:TextBox ID="userCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 222px; position: absolute; right: 1576px;"></asp:TextBox>
          <asp:TextBox ID="passCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 278px; position: absolute"></asp:TextBox>
+         <asp:Label ID="uNameAlertlbl" runat="server" ForeColor="Red" style="z-index: 1; left: 290px; top: 220px; position: absolute" Visible="False">Username is already taken!</asp:Label>
     </form>
 </body>
 </html>

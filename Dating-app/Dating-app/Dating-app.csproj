@@ -67,18 +67,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TindrLogin.aspx" />
+    <Content Include="Tindr.aspx" />
     <Content Include="TindrProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TindrLogin.aspx.cs">
-      <DependentUpon>TindrLogin.aspx</DependentUpon>
+    <Compile Include="Tindr.aspx.cs">
+      <DependentUpon>Tindr.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TindrLogin.aspx.designer.cs">
-      <DependentUpon>TindrLogin.aspx</DependentUpon>
+    <Compile Include="Tindr.aspx.designer.cs">
+      <DependentUpon>Tindr.aspx</DependentUpon>
     </Compile>
     <Compile Include="TindrProfile.aspx.cs">
       <DependentUpon>TindrProfile.aspx</DependentUpon>

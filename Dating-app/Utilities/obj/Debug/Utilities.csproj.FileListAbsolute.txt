@@ -4,3 +4,9 @@ C:\Users\qahdu\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Ut
 C:\Users\qahdu\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
 C:\Users\qahdu\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Utilities.dll
 C:\Users\qahdu\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Utilities.pdb
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Utilities\bin\Debug\Utilities.dll
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Utilities\bin\Debug\Utilities.pdb
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Utilities.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Utilities.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Utilities.dll
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Utilities\obj\Debug\Utilities.pdb

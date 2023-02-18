@@ -219,6 +219,7 @@ namespace Utilities
             theCommand.Connection = myConnectionSql;
             theCommand.Connection.Open();
             return theCommand.ExecuteScalar();
+            
         }
 
         public SqlConnection GetConnection()
