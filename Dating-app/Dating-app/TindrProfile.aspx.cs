@@ -66,26 +66,26 @@ namespace Dating_app
                 {
                     dislike = "N/A";
                 }
-                SqlCommand insertCommand = new SqlCommand("INSERT INTO Dating (username, name, age, occupation, address, email, phone, height, like, dislike, goal, commitment, description, photo, birthday) VALUES (@username, @name, @age, @occupation, @address, @email, @phone, @height, @like, @dislike, @goal, @commitment, @description, @photo, @birthday)");
+                //SqlCommand insertCommand = new SqlCommand("INSERT INTO Dating (username, name, age, occupation, address, email, phone, height, like, dislike, goal, commitment, description, photo, birthday) VALUES (@username, @name, @age, @occupation, @address, @email, @phone, @height, @like, @dislike, @goal, @commitment, @description, @photo, @birthday)");
                 //SqlCommand insertCommand = new SqlCommand("INSERT INTO DATING (username) VALUES (@username)");
                 SqlCommand insert2 = new SqlCommand("INSERT INTO Test (username, name, age, occupation, address, email, phone, height, like, dislike, goal, commitment, description, photo, birthday) VALUES (@username, @name, @age, @occupation, @address, @email, @phone, @height, @like, @dislike, @goal, @commitment @description, @photo, @birthday)");
-                insert2.Parameters.AddWithValue("username", username);
-                insert2.Parameters.AddWithValue("name", name);
-                insertCommand.Parameters.AddWithValue("username", username);
-                insertCommand.Parameters.AddWithValue("name", name);
-                insert2.Parameters.AddWithValue("age", age);
-                insert2.Parameters.AddWithValue("occupation", occupation);
-                insert2.Parameters.AddWithValue("address", address);
-                insert2.Parameters.AddWithValue("email", email);
-                insert2.Parameters.AddWithValue("phone", phone);
-                insert2.Parameters.AddWithValue("height", height);
-                insert2.Parameters.AddWithValue("like", like);
-                insert2.Parameters.AddWithValue("dislike", dislike);
-                insert2.Parameters.AddWithValue("goal", goal);
-                insert2.Parameters.AddWithValue("commitment", commit);
-                insert2.Parameters.AddWithValue("description", descrip);
-                insert2.Parameters.AddWithValue("photo", photo);
-                insert2.Parameters.AddWithValue("birthday", birthday);
+                insert2.Parameters.Add("@username", SqlDbType.VarChar, 50).Value =username;
+                insert2.Parameters.Add("@name", SqlDbType.VarChar,50).Value = name;
+                //insertCommand.Parameters.AddWithValue("username", username);
+                //insertCommand.Parameters.AddWithValue("name", name);
+                insert2.Parameters.Add("@age", SqlDbType.VarChar,50).Value = age;
+                insert2.Parameters.Add("@occupation", SqlDbType.VarChar, 50).Value = occupation;
+                insert2.Parameters.Add("@address", SqlDbType.VarChar, 50).Value = address;
+                insert2.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = email;
+                insert2.Parameters.Add("@phone", SqlDbType.VarChar, 50).Value = phone;
+                insert2.Parameters.Add("@height", SqlDbType.VarChar, 50).Value = height;
+                insert2.Parameters.Add("@like", SqlDbType.VarChar, 50).Value = like ;
+                insert2.Parameters.Add("@dislike", SqlDbType.VarChar,50).Value = dislike;
+                insert2.Parameters.Add("@goal", SqlDbType.VarChar, 50).Value = goal;
+                insert2.Parameters.Add("@commitment", SqlDbType.VarChar, 50).Value = commit;
+                insert2.Parameters.Add("@description", SqlDbType.VarChar, 100).Value = descrip;
+                insert2.Parameters.Add("@photo", SqlDbType.VarChar, 100).Value = photo;
+                insert2.Parameters.Add("@birthday", SqlDbType.VarChar, 50).Value = birthday;
                 //objDB.DoUpdate(newCommand.insertProfile(username, name, age, occupation, address, email, phone, height, like, dislike, goal, commit, descrip, photo, birthday));
                 objDB.DoUpdate(insert2);
             
