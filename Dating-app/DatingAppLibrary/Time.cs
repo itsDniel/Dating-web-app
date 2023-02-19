@@ -16,7 +16,7 @@ namespace DatingAppLibrary
             {
                 greeting = "Good Morning ";
                 return greeting;
-            }else if(timeNow >= 12 && timeNow < 6)
+            }else if(timeNow >= 12 && timeNow < 18)
             {
                 greeting = "Good Afternoon ";
                 return greeting;
