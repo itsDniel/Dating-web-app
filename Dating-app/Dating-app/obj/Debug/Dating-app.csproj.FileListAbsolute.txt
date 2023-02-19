@@ -120,3 +120,5 @@ C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Dating-app\obj\Debug\
 C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Dating-app\obj\Debug\Dating-app.csproj.CopyComplete
 C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Dating-app\obj\Debug\Dating-app.dll
 C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Dating-app\obj\Debug\Dating-app.pdb
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Dating-app\bin\DatingAppLibrary.dll
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\Dating-app\bin\DatingAppLibrary.pdb

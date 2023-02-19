@@ -98,6 +98,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DatingAppLibrary\DatingAppLibrary.csproj">
+      <Project>{c70fd8ae-16f8-4b97-a857-bd1dc2895e6a}</Project>
+      <Name>DatingAppLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Utilities\Utilities.csproj">
       <Project>{62d60dcc-e977-4290-ae21-ba2361354610}</Project>
       <Name>Utilities</Name>

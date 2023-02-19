@@ -1,0 +1,6 @@
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\bin\Debug\DatingAppLibrary.dll
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\bin\Debug\DatingAppLibrary.pdb
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\obj\Debug\DatingAppLibrary.csproj.AssemblyReference.cache
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\obj\Debug\DatingAppLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\obj\Debug\DatingAppLibrary.dll
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\obj\Debug\DatingAppLibrary.pdb

@@ -67,15 +67,20 @@ namespace Dating_app
             String password = passWordtxt.Text;
             DBConnect objDB = new DBConnect();
             String sql = "SELECT COUNT(*) FROM Login WHERE username = '" + username + "' AND password = '" + password + "'";
+            SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
             SqlCommand retrieve = new SqlCommand(sql);
             int userCount = (int)objDB.ExecuteScalarFunction(retrieve);
             objDB.CloseConnection();
+            String cookieName = objDB.GetDataSet(name).Tables[0].Rows[0]["fname"].ToString();
             if(userCount > 0)
             {
                 loginTest.Text = "Login successful";
                 HttpCookie uname = new HttpCookie("Username");
+                HttpCookie cName = new HttpCookie("Name");
+                cName.Value = cookieName;
                 uname.Value = userNametxt.Text;
                 Response.Cookies.Add(uname);
+                Response.Cookies.Add(cName);
                 Response.Redirect("TindrProfile.aspx");
             }
             else
