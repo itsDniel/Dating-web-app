@@ -38,25 +38,9 @@ namespace Dating_app
 
         protected void submitbtn_Click(object sender, EventArgs e)
         {
-            
-            
-
                 DBConnect objDB = new DBConnect();
-                updateProfileDB newCommand = new updateProfileDB();
-                string username = Request.Cookies["Username"].Value.ToString();
-                string name = nametxt.Text;
-                string age = agetxt.Text;
-                string occupation = occupationtxt.Text;
-                string address = addresstxt.Text;
-                string email = emailtxt.Text;
-                string phone = phonetxt.Text;
-                string height = heighttxt.Text;
-                string goal = goaltxt.Text;
-                string commit = commitddl.Text;
-                string descrip = descriptiontxt.Text;
-                string photo = pictxt.Text;
-                string birthday = birthdaytxt.Text;
                 string like = liketxt.Text;
+                string username = Request.Cookies["Username"].Value.ToString();
                 string dislike = disliketxt.Text;
                 if (string.IsNullOrEmpty(like))
                 {
@@ -66,29 +50,35 @@ namespace Dating_app
                 {
                     dislike = "N/A";
                 }
-                //SqlCommand insertCommand = new SqlCommand("INSERT INTO Dating (username, name, age, occupation, address, email, phone, height, like, dislike, goal, commitment, description, photo, birthday) VALUES (@username, @name, @age, @occupation, @address, @email, @phone, @height, @like, @dislike, @goal, @commitment, @description, @photo, @birthday)");
-                //SqlCommand insertCommand = new SqlCommand("INSERT INTO DATING (username) VALUES (@username)");
-                SqlCommand insert2 = new SqlCommand("INSERT INTO Test (username, name, age, occupation, address, email, phone, height, like, dislike, goal, commitment, description, photo, birthday) VALUES (@username, @name, @age, @occupation, @address, @email, @phone, @height, @like, @dislike, @goal, @commitment @description, @photo, @birthday)");
-                insert2.Parameters.Add("@username", SqlDbType.VarChar, 50).Value =username;
-                insert2.Parameters.Add("@name", SqlDbType.VarChar,50).Value = name;
-                //insertCommand.Parameters.AddWithValue("username", username);
-                //insertCommand.Parameters.AddWithValue("name", name);
-                insert2.Parameters.Add("@age", SqlDbType.VarChar,50).Value = age;
-                insert2.Parameters.Add("@occupation", SqlDbType.VarChar, 50).Value = occupation;
-                insert2.Parameters.Add("@address", SqlDbType.VarChar, 50).Value = address;
-                insert2.Parameters.Add("@email", SqlDbType.VarChar, 50).Value = email;
-                insert2.Parameters.Add("@phone", SqlDbType.VarChar, 50).Value = phone;
-                insert2.Parameters.Add("@height", SqlDbType.VarChar, 50).Value = height;
-                insert2.Parameters.Add("@like", SqlDbType.VarChar, 50).Value = like ;
-                insert2.Parameters.Add("@dislike", SqlDbType.VarChar,50).Value = dislike;
-                insert2.Parameters.Add("@goal", SqlDbType.VarChar, 50).Value = goal;
-                insert2.Parameters.Add("@commitment", SqlDbType.VarChar, 50).Value = commit;
-                insert2.Parameters.Add("@description", SqlDbType.VarChar, 100).Value = descrip;
-                insert2.Parameters.Add("@photo", SqlDbType.VarChar, 100).Value = photo;
-                insert2.Parameters.Add("@birthday", SqlDbType.VarChar, 50).Value = birthday;
-                //objDB.DoUpdate(newCommand.insertProfile(username, name, age, occupation, address, email, phone, height, like, dislike, goal, commit, descrip, photo, birthday));
+            SqlCommand uNamecheck = new SqlCommand("SELECT COUNT(*) FROM Login WHERE username = '" + username + "'");
+            int userCount = (int)objDB.ExecuteScalarFunction(uNamecheck);
+            objDB.CloseConnection();
+            if (userCount > 0)
+            {
+                welcomelbl.Text = "User already exist";
+            }
+            else
+            {
+
+                SqlCommand insert2 = new SqlCommand("insertDating");
+                insert2.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+                insert2.Parameters.Add("@name", SqlDbType.VarChar).Value = nametxt.Text;
+                insert2.Parameters.Add("@age", SqlDbType.VarChar).Value = agetxt.Text;
+                insert2.Parameters.Add("@occupation", SqlDbType.VarChar).Value = occupationtxt.Text;
+                insert2.Parameters.Add("@address", SqlDbType.VarChar).Value = addresstxt.Text;
+                insert2.Parameters.Add("@email", SqlDbType.VarChar).Value = emailtxt.Text;
+                insert2.Parameters.Add("@phone", SqlDbType.VarChar).Value = phonetxt.Text;
+                insert2.Parameters.Add("@height", SqlDbType.VarChar).Value = heighttxt.Text;
+                insert2.Parameters.Add("@favorite", SqlDbType.VarChar).Value = like;
+                insert2.Parameters.Add("@dislike", SqlDbType.VarChar).Value = dislike;
+                insert2.Parameters.Add("@goal", SqlDbType.VarChar).Value = goaltxt.Text;
+                insert2.Parameters.Add("@commitment", SqlDbType.VarChar).Value = commitddl.Text;
+                insert2.Parameters.Add("@description", SqlDbType.VarChar).Value = descriptiontxt.Text;
+                insert2.Parameters.Add("@photo", SqlDbType.VarChar).Value = pictxt.Text;
+                insert2.Parameters.Add("@birthday", SqlDbType.VarChar).Value = birthdaytxt.Text;
+                insert2.CommandType = CommandType.StoredProcedure;
                 objDB.DoUpdate(insert2);
-            
+            }
         }
 
       

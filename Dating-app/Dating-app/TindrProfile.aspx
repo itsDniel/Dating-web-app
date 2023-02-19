@@ -4,16 +4,23 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        #profileForm {
-            height: 788px;
-        }
-    </style>
+    <title>Tindr</title>
+    <link href ="tindr.css" rel="stylesheet" />
+
+
 </head>
 <body>
+    <header>
+        <nav id="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="TindrProfile.aspx">Profile</a></li>
+                <li><a href="#">My Match</a></li>
+            </ul>
+        </nav>
+    </header>
         <div>
-            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; left: 1556px; top: 30px; position: absolute"></asp:Label>
+            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: 31px; position: absolute; right: 1659px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
         </div>
     <form id="profileForm" runat="server">
         
@@ -31,14 +38,14 @@
         </p>
         
         <p>
-            <asp:Button ID="logoutbtn" runat="server" OnClick="logoutbtn_Click" style="z-index: 1; left: 1720px; top: 26px; position: absolute" Text="Logout" />
+            <asp:Button ID="logoutbtn" runat="server" OnClick="logoutbtn_Click" style="z-index: 1; left: 1732px; top: 94px; position: absolute; height: 32px; width: 61px;" Text="Logout" />
             <asp:TextBox ID="emailtxt" runat="server" style="z-index: 1; left: 180px; top: 283px; position: absolute"></asp:TextBox>
             <asp:RequiredFieldValidator ID="nameValidator" runat="server" ControlToValidate="nametxt" ErrorMessage="You Must Enter Your Name!" ForeColor="Red" style="z-index: 1; left: 153px; top: 136px; position: absolute; height: 18px"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="ageValidator" runat="server" ControlToValidate="agetxt" ErrorMessage="You Must Enter Your Age!" ForeColor="Red" style="z-index: 1; left: 908px; top: 143px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="agetxt" ErrorMessage="Input Must Be Number!" ForeColor="Red" MaximumValue="400" MinimumValue="0" style="z-index: 1; left: 914px; top: 143px; position: absolute"></asp:RangeValidator>
         </p>
         
-        <asp:Label ID="greetinglbl" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; top: 74px; position: absolute; left: 644px" Text="Hi There, Let's Get Your Profile Set Up"></asp:Label>
+        <asp:Label ID="greetinglbl" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; top: 94px; position: absolute; left: 645px" Text="Hi There, Let's Get Your Profile Set Up"></asp:Label>
         <asp:Label ID="namelbl" runat="server" style="z-index: 1; left: 84px; top: 172px; position: absolute" Text="Your Name: "></asp:Label>
         <asp:TextBox ID="nametxt" runat="server" style="z-index: 1; left: 183px; top: 172px; position: absolute"></asp:TextBox>
         <asp:Label ID="birthdaylbl" runat="server" style="z-index: 1; top: 174px; position: absolute; left: 446px; height: 19px; right: 1299px" Text="Your Birthday: "></asp:Label>
@@ -56,7 +63,7 @@
         <asp:TextBox ID="heighttxt" runat="server" style="z-index: 1; left: 1332px; top: 283px; position: absolute"></asp:TextBox>
         <asp:Label ID="likelbl" runat="server" style="z-index: 1; left: 59px; top: 401px; position: absolute" Text="What do you like:"></asp:Label>
         <asp:TextBox ID="liketxt" runat="server" style="z-index: 1; left: 179px; top: 401px; position: absolute"></asp:TextBox>
-        <asp:Label ID="dislikelbl" runat="server" style="z-index: 1; left: 424px; top: 404px; position: absolute" Text="What do you dislike:"></asp:Label>
+        <asp:Label ID="dislikelbl" runat="server" style="z-index: 1; left: 419px; top: 403px; position: absolute" Text="What do you dislike:"></asp:Label>
         <asp:TextBox ID="disliketxt" runat="server" style="z-index: 1; left: 552px; top: 403px; position: absolute"></asp:TextBox>
         <asp:Label ID="goallbl" runat="server" style="z-index: 1; left: 808px; top: 403px; position: absolute" Text="What is your goal: "></asp:Label>
         <asp:TextBox ID="goaltxt" runat="server" style="z-index: 1; top: 402px; position: absolute; left: 922px"></asp:TextBox>

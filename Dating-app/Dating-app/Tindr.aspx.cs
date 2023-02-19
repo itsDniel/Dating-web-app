@@ -35,19 +35,20 @@ namespace Dating_app
         {
             String username = userCreationtxt.Text;
             DBConnect objDB = new DBConnect();
-            SqlCommand updateCommand = new SqlCommand("INSERT INTO Login (username, password, fname, lname, email) VALUES (@username, @password, @fname, @lname, @email)");
+            SqlCommand updateCommand = new SqlCommand("insertLogin");
             updateCommand.Parameters.AddWithValue("username", userCreationtxt.Text);
             updateCommand.Parameters.AddWithValue("password", passCreationtxt.Text);
             updateCommand.Parameters.AddWithValue("fname", fNametxt.Text);
             updateCommand.Parameters.AddWithValue("lname", lNametxt.Text);
             updateCommand.Parameters.AddWithValue("email", emailtxt.Text);
+            updateCommand.CommandType = CommandType.StoredProcedure;
             SqlCommand checkUname = new SqlCommand("SELECT COUNT(*) FROM Login WHERE username = '" + username + "'");
             int userCount = (int)objDB.ExecuteScalarFunction(checkUname);
             objDB.CloseConnection();
             if (userCount > 0)
             {
                 uNameAlertlbl.Visible = true;
-                System.Diagnostics.Debug.WriteLine("yes does exist");
+
             }
             else
             {
@@ -55,7 +56,7 @@ namespace Dating_app
                 objDB.DoUpdate(updateCommand);
                 accountForm.Visible = false;
                 form1.Visible = true;
-                System.Diagnostics.Debug.WriteLine("no doesn't exist");
+
             }
 
 
@@ -74,7 +75,6 @@ namespace Dating_app
             String cookieName = objDB.GetDataSet(name).Tables[0].Rows[0]["fname"].ToString();
             if(userCount > 0)
             {
-                loginTest.Text = "Login successful";
                 HttpCookie uname = new HttpCookie("Username");
                 HttpCookie cName = new HttpCookie("Name");
                 cName.Value = cookieName;
@@ -85,7 +85,7 @@ namespace Dating_app
             }
             else
             {
-                loginTest.Text = "Login failed";
+                loginTest.Text = "Wrong Username or Password!";
             }
             
         }

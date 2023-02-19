@@ -22,7 +22,7 @@
             <asp:TextBox ID="userNametxt" runat="server" style="z-index: 1; left: 97px; top: 64px; position: absolute"></asp:TextBox>
             <asp:TextBox ID="passWordtxt" TextMode="Password" runat="server" style="z-index: 1; left: 96px; top: 102px; position: absolute"></asp:TextBox>
             <asp:Button ID="loginBtn" runat="server" style="z-index: 1; left: 16px; top: 155px; position: absolute; height: 26px; width: 54px" Text="Login" OnClick="loginBtn_Click" />
-            <asp:Label ID="loginTest" runat="server" style="z-index: 1; left: 614px; top: 257px; position: absolute"></asp:Label>
+            <asp:Label ID="loginTest" runat="server" style="z-index: 1; left: 279px; top: 82px; position: absolute" Font-Size="Large" ForeColor="Red"></asp:Label>
         </div>
        
         
