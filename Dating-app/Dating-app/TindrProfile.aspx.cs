@@ -12,16 +12,19 @@ namespace Dating_app
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Request.Cookies["Username"] != null)
+            if (!IsPostBack)
             {
-                Time now = new Time();
-                Label1.Text = Request.Cookies["Username"].Value.ToString();
-                welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
+                if (Request.Cookies["Username"] != null)
+                {
+                    Time now = new Time();
+                    Label1.Text = Request.Cookies["Username"].Value.ToString();
+                    welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
 
-            }
-            else
-            {
-                Response.Redirect("Tindr.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Tindr.aspx");
+                }
             }
         }
 
