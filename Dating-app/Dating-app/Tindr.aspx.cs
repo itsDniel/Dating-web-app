@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Utilities;
 using System.Data.SqlClient;
+using DatingAppLibrary;
 
 namespace Dating_app
 {
@@ -33,17 +34,14 @@ namespace Dating_app
 
         protected void createAccountbtn_Click(object sender, EventArgs e)
         {
-            String username = userCreationtxt.Text;
+            string username = userCreationtxt.Text;
+            string password = passCreationtxt.Text;
+            string fname = fNametxt.Text;
+            string lname = lNametxt.Text;
+            string email = emailtxt.Text;
             DBConnect objDB = new DBConnect();
-            SqlCommand updateCommand = new SqlCommand("insertLogin");
-            updateCommand.Parameters.AddWithValue("username", userCreationtxt.Text);
-            updateCommand.Parameters.AddWithValue("password", passCreationtxt.Text);
-            updateCommand.Parameters.AddWithValue("fname", fNametxt.Text);
-            updateCommand.Parameters.AddWithValue("lname", lNametxt.Text);
-            updateCommand.Parameters.AddWithValue("email", emailtxt.Text);
-            updateCommand.CommandType = CommandType.StoredProcedure;
-            SqlCommand checkUname = new SqlCommand("SELECT COUNT(*) FROM Login WHERE username = '" + username + "'");
-            int userCount = (int)objDB.ExecuteScalarFunction(checkUname);
+            storedProceduralCommand insert = new storedProceduralCommand();
+            int userCount = (int)objDB.ExecuteScalarFunction(insert.executeScalarLogin(username));
             objDB.CloseConnection();
             if (userCount > 0)
             {
@@ -53,7 +51,7 @@ namespace Dating_app
             else
             {
                 uNameAlertlbl.Visible = false;
-                objDB.DoUpdate(updateCommand);
+                objDB.DoUpdate(insert.insertLogin(username, password, fname, lname, email));
                 accountForm.Visible = false;
                 form1.Visible = true;
 

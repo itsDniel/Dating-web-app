@@ -18,26 +18,22 @@ namespace Dating_app
             if (Request.Cookies["Username"] != null)
             {
                 DBConnect objDB = new DBConnect();
+                storedProceduralCommand insert = new storedProceduralCommand();
                 Time now = new Time();
                 string username = Request.Cookies["Username"].Value.ToString();
                 welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
-                SqlCommand uNamecheck = new SqlCommand("SELECT COUNT(*) FROM DatingProfile WHERE username = '" + username + "'");
-                int userCount = (int)objDB.ExecuteScalarFunction(uNamecheck);
+                int userCount = (int)objDB.ExecuteScalarFunction(insert.executeScalar(username));
                 objDB.CloseConnection();
                 if (userCount > 0)
                 {
                     profileForm2.Visible = true;
                     profileForm.Visible = false;
                     greetinglbl.Text = "You Already Have A Profile Set Up What Would You Like To Do?";
-                    SqlCommand getProfile = new SqlCommand("getProfile");
-                    SqlCommand getPic = new SqlCommand("getPic");
-                    getPic.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                    getPic.CommandType = CommandType.StoredProcedure;
-                    getProfile.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                    getProfile.CommandType = CommandType.StoredProcedure;
-                    string imageURL = objDB.GetDataSet(getPic).Tables[0].Rows[0]["photo"].ToString();
-                    profilePic.ImageUrl = imageURL;
-                    gvProfile.DataSource = objDB.GetDataSet(getProfile);
+                    profileForm.Visible = false;
+                    profileForm2.Visible = true;
+                    greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
+                    profilePic.ImageUrl = objDB.GetDataSet(insert.getPic(username)).Tables[0].Rows[0]["photo"].ToString();
+                    gvProfile.DataSource = objDB.GetDataSet(insert.getProfile(username));
                     gvProfile.DataBind();
 
                 }
@@ -64,10 +60,23 @@ namespace Dating_app
 
         protected void submitbtn_Click(object sender, EventArgs e)
         {
-                DBConnect objDB = new DBConnect();
-                string like = liketxt.Text;
-                string username = Request.Cookies["Username"].Value.ToString();
-                string dislike = disliketxt.Text;
+            DBConnect objDB = new DBConnect();
+            storedProceduralCommand insert = new storedProceduralCommand();
+            string like = liketxt.Text;
+            string username = Request.Cookies["Username"].Value.ToString();
+            string name = nametxt.Text;
+            string age = agetxt.Text;
+            string occupation = occupationtxt.Text;
+            string addr = addresstxt.Text;
+            string email = emailtxt.Text;
+            string phone = phonetxt.Text;
+            string height = heighttxt.Text;
+            string dislike = disliketxt.Text;
+            string goal = goaltxt.Text;
+            string commit = commitddl.Text;
+            string des = descriptiontxt.Text;
+            string pic = pictxt.Text;
+            string birthday = birthdaytxt.Text;
                 if (string.IsNullOrEmpty(like))
                 {
                     like = "N/A";
@@ -76,63 +85,27 @@ namespace Dating_app
                 {
                     dislike = "N/A";
                 }
-            SqlCommand uNamecheck = new SqlCommand("SELECT COUNT(*) FROM DatingProfile WHERE username = '" + username + "'");
-            int userCount = (int)objDB.ExecuteScalarFunction(uNamecheck);
+            int userCount = (int)objDB.ExecuteScalarFunction(insert.executeScalar(username));
             objDB.CloseConnection();
             if (userCount > 0)
             {
-                SqlCommand update = new SqlCommand("updateProfile");
-                update.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                update.Parameters.Add("@name", SqlDbType.VarChar).Value = nametxt.Text;
-                update.Parameters.Add("@age", SqlDbType.VarChar).Value = agetxt.Text;
-                update.Parameters.Add("@occupation", SqlDbType.VarChar).Value = occupationtxt.Text;
-                update.Parameters.Add("@address", SqlDbType.VarChar).Value = addresstxt.Text;
-                update.Parameters.Add("@email", SqlDbType.VarChar).Value = emailtxt.Text;
-                update.Parameters.Add("@phone", SqlDbType.VarChar).Value = phonetxt.Text;
-                update.Parameters.Add("@height", SqlDbType.VarChar).Value = heighttxt.Text;
-                update.Parameters.Add("@favorite", SqlDbType.VarChar).Value = like;
-                update.Parameters.Add("@dislike", SqlDbType.VarChar).Value = dislike;
-                update.Parameters.Add("@goal", SqlDbType.VarChar).Value = goaltxt.Text;
-                update.Parameters.Add("@commitment", SqlDbType.VarChar).Value = commitddl.Text;
-                update.Parameters.Add("@description", SqlDbType.VarChar).Value = descriptiontxt.Text;
-                update.Parameters.Add("@photo", SqlDbType.VarChar).Value = pictxt.Text;
-                update.Parameters.Add("@birthday", SqlDbType.VarChar).Value = birthdaytxt.Text;
-                update.CommandType = CommandType.StoredProcedure;
-                objDB.DoUpdate(update);
+                objDB.DoUpdate(insert.getUpdateCommand(username, name, age, occupation, addr, email, phone, height, like, dislike, goal, commit, des, pic, birthday));
+                profileForm.Visible = false;
+                profileForm2.Visible = true;
+                greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
+                profilePic.ImageUrl = objDB.GetDataSet(insert.getPic(username)).Tables[0].Rows[0]["photo"].ToString();
+                gvProfile.DataSource = objDB.GetDataSet(insert.getProfile(username));
+                gvProfile.DataBind();
             }
             else
             {
 
-                SqlCommand insert2 = new SqlCommand("insertDating");
-                insert2.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                insert2.Parameters.Add("@name", SqlDbType.VarChar).Value = nametxt.Text;
-                insert2.Parameters.Add("@age", SqlDbType.VarChar).Value = agetxt.Text;
-                insert2.Parameters.Add("@occupation", SqlDbType.VarChar).Value = occupationtxt.Text;
-                insert2.Parameters.Add("@address", SqlDbType.VarChar).Value = addresstxt.Text;
-                insert2.Parameters.Add("@email", SqlDbType.VarChar).Value = emailtxt.Text;
-                insert2.Parameters.Add("@phone", SqlDbType.VarChar).Value = phonetxt.Text;
-                insert2.Parameters.Add("@height", SqlDbType.VarChar).Value = heighttxt.Text;
-                insert2.Parameters.Add("@favorite", SqlDbType.VarChar).Value = like;
-                insert2.Parameters.Add("@dislike", SqlDbType.VarChar).Value = dislike;
-                insert2.Parameters.Add("@goal", SqlDbType.VarChar).Value = goaltxt.Text;
-                insert2.Parameters.Add("@commitment", SqlDbType.VarChar).Value = commitddl.Text;
-                insert2.Parameters.Add("@description", SqlDbType.VarChar).Value = descriptiontxt.Text;
-                insert2.Parameters.Add("@photo", SqlDbType.VarChar).Value = pictxt.Text;
-                insert2.Parameters.Add("@birthday", SqlDbType.VarChar).Value = birthdaytxt.Text;
-                insert2.CommandType = CommandType.StoredProcedure;
-                objDB.DoUpdate(insert2);
+                objDB.DoUpdate(insert.getInsertCommand(username, name, age, occupation, addr, email, phone, height, like, dislike, goal, commit, des, pic, birthday));
                 profileForm.Visible = false;
                 profileForm2.Visible = true;
                 greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
-                SqlCommand getProfile = new SqlCommand("getProfile");
-                SqlCommand getPic = new SqlCommand("getPic");
-                getPic.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                getPic.CommandType = CommandType.StoredProcedure;
-                getProfile.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-                getProfile.CommandType = CommandType.StoredProcedure;
-                string imageURL = objDB.GetDataSet(getPic).Tables[0].Rows[0]["photo"].ToString();
-                profilePic.ImageUrl = imageURL;
-                gvProfile.DataSource = objDB.GetDataSet(getProfile);
+                profilePic.ImageUrl = objDB.GetDataSet(insert.getPic(username)).Tables[0].Rows[0]["photo"].ToString();
+                gvProfile.DataSource = objDB.GetDataSet(insert.getProfile(username));
                 gvProfile.DataBind();
             }
         }
@@ -147,11 +120,9 @@ namespace Dating_app
         protected void deletebtn_Click(object sender, EventArgs e)
         {
             DBConnect objDB = new DBConnect();
-            SqlCommand delete = new SqlCommand("deleteProfile");
+            storedProceduralCommand insert = new storedProceduralCommand();
             string username = Request.Cookies["Username"].Value.ToString();
-            delete.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
-            delete.CommandType = CommandType.StoredProcedure;
-            objDB.DoUpdate(delete);
+            objDB.DoUpdate(insert.deleteProfile(username));
             greetinglbl.Text = "Ok Your Old Profile Is Now Deleted, Let's Set Up A New One";
             profileForm.Visible = true;
             profileForm2.Visible = false;
