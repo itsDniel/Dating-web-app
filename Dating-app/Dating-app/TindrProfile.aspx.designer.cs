@@ -15,6 +15,33 @@ namespace Dating_app
     {
 
         /// <summary>
+        /// profileForm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm profileForm;
+
+        /// <summary>
+        /// profilebtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button profilebtn;
+
+        /// <summary>
+        /// homebtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button homebtn;
+
+        /// <summary>
         /// welcomelbl control.
         /// </summary>
         /// <remarks>
@@ -31,15 +58,6 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label greetinglbl;
-
-        /// <summary>
-        /// profileForm control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm profileForm;
 
         /// <summary>
         /// occupationValidator control.
@@ -420,13 +438,13 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.DropDownList commitddl;
 
         /// <summary>
-        /// profileForm2 control.
+        /// gvProfile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm profileForm2;
+        protected global::System.Web.UI.WebControls.GridView gvProfile;
 
         /// <summary>
         /// deletebtn control.
@@ -454,14 +472,5 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image profilePic;
-
-        /// <summary>
-        /// gvProfile control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvProfile;
     }
 }

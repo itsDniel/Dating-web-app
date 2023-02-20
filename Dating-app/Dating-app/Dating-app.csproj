@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Tindr.aspx" />
     <Content Include="tindr.css" />
+    <Content Include="TindrMain.aspx" />
     <Content Include="TindrProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -80,6 +81,13 @@
     </Compile>
     <Compile Include="Tindr.aspx.designer.cs">
       <DependentUpon>Tindr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TindrMain.aspx.cs">
+      <DependentUpon>TindrMain.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TindrMain.aspx.designer.cs">
+      <DependentUpon>TindrMain.aspx</DependentUpon>
     </Compile>
     <Compile Include="TindrProfile.aspx.cs">
       <DependentUpon>TindrProfile.aspx</DependentUpon>

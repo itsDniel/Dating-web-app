@@ -112,5 +112,12 @@ namespace DatingAppLibrary
             SqlCommand checkUname = new SqlCommand("SELECT COUNT(*) FROM Login WHERE username = '" + username + "'");
             return checkUname;
         }
+
+        //Use this to retrieve first name
+        public SqlCommand getfName(string username)
+        {
+            SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
+            return name;
+        }
     }
 }

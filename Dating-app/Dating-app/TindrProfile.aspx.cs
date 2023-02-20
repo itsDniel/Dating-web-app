@@ -26,12 +26,17 @@ namespace Dating_app
                 objDB.CloseConnection();
                 if (userCount > 0)
                 {
-                    profileForm2.Visible = true;
-                    profileForm.Visible = false;
+                    foreach (Control control in profileForm.Controls)
+                    {
+                        if (control is TextBox || control is Label || control is DropDownList)
+                        {
+                            control.Visible = false;
+                        }
+                    }
+                    welcomelbl.Visible = true;
+                    greetinglbl.Visible = true;
+                    submitbtn.Visible = false;
                     greetinglbl.Text = "You Already Have A Profile Set Up What Would You Like To Do?";
-                    profileForm.Visible = false;
-                    profileForm2.Visible = true;
-                    greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
                     profilePic.ImageUrl = objDB.GetDataSet(insert.getPic(username)).Tables[0].Rows[0]["photo"].ToString();
                     gvProfile.DataSource = objDB.GetDataSet(insert.getProfile(username));
                     gvProfile.DataBind();
@@ -39,8 +44,16 @@ namespace Dating_app
                 }
                 else
                 {
-                    profileForm.Visible = true;
-                    profileForm2.Visible = false;
+                    foreach(Control control in profileForm.Controls)
+                    {
+                        if(control is GridView || control is Image || control is Button)
+                        {
+                            control.Visible = false;
+                        }
+                    }
+                    submitbtn.Visible = true;
+                    logoutbtn.Visible = true;
+
                 }
 
             }
@@ -90,8 +103,15 @@ namespace Dating_app
             if (userCount > 0)
             {
                 objDB.DoUpdate(insert.getUpdateCommand(username, name, age, occupation, addr, email, phone, height, like, dislike, goal, commit, des, pic, birthday));
-                profileForm.Visible = false;
-                profileForm2.Visible = true;
+                foreach (Control control in profileForm.Controls)
+                {
+                    if (control is TextBox || control is Label)
+                    {
+                        control.Visible = false;
+                    }
+                }
+                welcomelbl.Visible = true;
+                greetinglbl.Visible = true;
                 greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
                 profilePic.ImageUrl = objDB.GetDataSet(insert.getPic(username)).Tables[0].Rows[0]["photo"].ToString();
                 gvProfile.DataSource = objDB.GetDataSet(insert.getProfile(username));
@@ -101,8 +121,15 @@ namespace Dating_app
             {
 
                 objDB.DoUpdate(insert.getInsertCommand(username, name, age, occupation, addr, email, phone, height, like, dislike, goal, commit, des, pic, birthday));
-                profileForm.Visible = false;
-                profileForm2.Visible = true;
+                foreach (Control control in profileForm.Controls)
+                {
+                    if (control is TextBox || control is Label)
+                    {
+                        control.Visible = false;
+                    }
+                }
+                welcomelbl.Visible = true;
+                greetinglbl.Visible = true;
                 greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
                 profilePic.ImageUrl = objDB.GetDataSet(insert.getPic(username)).Tables[0].Rows[0]["photo"].ToString();
                 gvProfile.DataSource = objDB.GetDataSet(insert.getProfile(username));
@@ -112,8 +139,21 @@ namespace Dating_app
 
         protected void modifybtn_Click(object sender, EventArgs e)
         {
-            profileForm.Visible = true;
-            profileForm2.Visible = false;
+            foreach (Control control in profileForm.Controls)
+            {
+                if (control is GridView || control is Image || control is Button)
+                {
+                    control.Visible = false;
+                }
+                else
+                {
+                    control.Visible = true;
+                }
+            }
+            welcomelbl.Visible = true;
+            submitbtn.Visible = true;
+            greetinglbl.Visible = true;
+
             greetinglbl.Text = "Hi There, Let's Modify Your Profile";
         }
 
@@ -124,8 +164,39 @@ namespace Dating_app
             string username = Request.Cookies["Username"].Value.ToString();
             objDB.DoUpdate(insert.deleteProfile(username));
             greetinglbl.Text = "Ok Your Old Profile Is Now Deleted, Let's Set Up A New One";
-            profileForm.Visible = true;
-            profileForm2.Visible = false;
+            foreach (Control control in profileForm.Controls)
+            {
+                if (control is GridView || control is Image || control is Button)
+                {
+                    control.Visible = false;
+                }
+            }
+            submitbtn.Visible = true;
+
+
+        }
+
+        protected void logoutbtn2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Tindr.aspx");
+            Request.Cookies["Username"].Expires = DateTime.Now.AddDays(-1);
+            Request.Cookies["Name"].Expires = DateTime.Now.AddDays(-1);
+        }
+
+        protected void homebtn_Click(object sender, EventArgs e)
+        {
+            HttpCookie cName = new HttpCookie("Username");
+            HttpCookie uName = new HttpCookie("Name");
+            cName.Value = Request.Cookies["Username"].Value.ToString();
+            uName.Value = Request.Cookies["Name"].Value.ToString();
+            Response.Cookies.Add(uName);
+            Response.Cookies.Add(cName);
+            Response.Redirect("TindrMain.aspx");
+        }
+
+        protected void profilebtn_Click(object sender, EventArgs e)
+        {
+            this.Page_Load(sender, e);
         }
     }
 }
