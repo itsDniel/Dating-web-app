@@ -6,6 +6,7 @@
 <head runat="server">
     <title>Tindr</title>
     <link href ="tindr.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"/>
 
 
     <style type="text/css">
@@ -13,8 +14,8 @@
             height: 868px;
             width: 1548px;
             z-index: 1;
-            left: 117px;
-            top: 85px;
+            left: 21px;
+            top: 100px;
             position: absolute;
         }
     </style>
@@ -22,6 +23,7 @@
 
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <header>
         <nav id="nav">
             <ul>
@@ -35,21 +37,21 @@
         
 
 
-        <asp:Button ID="profilebtn" runat="server" style="z-index: 1; left: 2218px; top: 219px; position: absolute" Text="Button" />
+        <asp:Button ID="profilebtn" runat="server" CausesValidation="False" CssClass="hidden" style="z-index: 1; left: 1403px; top: 126px; position: absolute" Text="Button" />
         
 
 
-        <asp:Button ID="homebtn" runat="server" OnClick="homebtn_Click" Text="Button" style="z-index: 1; left: 2238px; top: 89px; position: absolute" />
+        <asp:Button ID="homebtn" runat="server" CausesValidation="False" CssClass="hidden" OnClick="homebtn_Click" Text="Button" style="z-index: 1; left: 1407px; top: 66px; position: absolute" />
         <div>
-            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -57px; position: absolute; left: -86px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
+            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -79px; position: absolute; left: 25px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
             
         </div>
-            <asp:Label ID="greetinglbl" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; top: 17px; position: absolute; left: 523px" Text="Hi There, Let's Get Your Profile Set Up"></asp:Label>
+            <asp:Label ID="greetinglbl" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; top: 5px; position: absolute; left: 438px" Text="Hi There, Let's Get Your Profile Set Up"></asp:Label>
 
         <p>
             <asp:RequiredFieldValidator ID="occupationValidator" runat="server" ControlToValidate="occupationtxt" ErrorMessage="You Must Enter Your Occupation!" ForeColor="Red" style="z-index: 1; left: 1289px; top: 146px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="emailtxt" ErrorMessage="You Must Enter Your Email!" ForeColor="Red" style="z-index: 1; left: 159px; top: 250px; position: absolute"></asp:RequiredFieldValidator>
-            <asp:RequiredFieldValidator ID="addressValidator" runat="server" ControlToValidate="addresstxt" ErrorMessage="You Must Enter Your Address" ForeColor="Red" style="z-index: 1; left: 526px; top: 254px; position: absolute"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ID="addressValidator" runat="server" ControlToValidate="addresstxt" ErrorMessage="You Must Enter Your City" ForeColor="Red" style="z-index: 1; left: 526px; top: 254px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="phoneValidator" runat="server" ControlToValidate="phonetxt" ErrorMessage="You Must Enter Your Phone Number" ForeColor="Red" style="z-index: 1; left: 875px; top: 255px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="heightValidator" runat="server" ControlToValidate="heighttxt" ErrorMessage="You Must Enter Your Height" ForeColor="Red" style="z-index: 1; left: 1311px; top: 255px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="goalValidator" runat="server" ControlToValidate="goaltxt" ErrorMessage="You Must Enter Your Goal" ForeColor="Red" style="z-index: 1; left: 906px; top: 374px; position: absolute"></asp:RequiredFieldValidator>
@@ -60,7 +62,7 @@
             
         </p>
 
-            <asp:Button ID="logoutbtn" runat="server" OnClick="logoutbtn_Click" style="z-index: 1; left: 2092px; top: 80px; position: absolute; height: 32px; width: 61px;" Text="Logout" CausesValidation="False" />
+            <asp:Button ID="logoutbtn" runat="server" CssClass="hidden" OnClick="logoutbtn_Click" style="z-index: 1; left: 1414px; top: 5px; position: absolute; height: 32px; width: 61px;" Text="Logout" CausesValidation="False" />
 
             <asp:TextBox ID="emailtxt" runat="server" style="z-index: 1; left: 180px; top: 283px; position: absolute"></asp:TextBox>
             <asp:RequiredFieldValidator ID="nameValidator" runat="server" ControlToValidate="nametxt" ErrorMessage="You Must Enter Your Name!" ForeColor="Red" style="z-index: 1; left: 153px; top: 136px; position: absolute; height: 18px"></asp:RequiredFieldValidator>
@@ -78,16 +80,29 @@
         <asp:Label ID="occupationlbl" runat="server" style="z-index: 1; left: 1204px; top: 176px; position: absolute; height: 17px" Text="Your Occupation: "></asp:Label>
         <asp:Label ID="emaillbl" runat="server" style="z-index: 1; left: 82px; top: 282px; position: absolute" Text="Your Email: "></asp:Label>
         <asp:TextBox ID="occupationtxt" runat="server" style="z-index: 1; left: 1333px; top: 173px; position: absolute"></asp:TextBox>
-        <asp:Label ID="addresslbl" runat="server" style="z-index: 1; left: 447px; top: 284px; position: absolute" Text="Your Address: "></asp:Label>
+        <asp:Label ID="addresslbl" runat="server" style="z-index: 1; left: 450px; top: 278px; position: absolute" Text="Your City"></asp:Label>
         <asp:TextBox ID="addresstxt" runat="server" style="z-index: 1; left: 552px; top: 282px; position: absolute"></asp:TextBox>
         <asp:Label ID="phonelbl" runat="server" style="z-index: 1; left: 841px; top: 284px; position: absolute" Text="Your Phone: "></asp:Label>
         <asp:TextBox ID="phonetxt" runat="server" style="z-index: 1; left: 923px; top: 282px; position: absolute"></asp:TextBox>
         <asp:Label ID="heightlbl" runat="server" style="z-index: 1; left: 1214px; top: 285px; position: absolute" Text="Your Height: "></asp:Label>
         <asp:TextBox ID="heighttxt" runat="server" style="z-index: 1; left: 1332px; top: 283px; position: absolute"></asp:TextBox>
         <asp:Label ID="likelbl" runat="server" style="z-index: 1; left: 59px; top: 401px; position: absolute" Text="What do you like:"></asp:Label>
-        <asp:TextBox ID="liketxt" runat="server" style="z-index: 1; left: 179px; top: 401px; position: absolute"></asp:TextBox>
+        <asp:DropDownList ID="liketxt" runat="server" style="z-index: 1; left: 209px; top: 403px; position: absolute; right: 1236px">
+            <asp:ListItem>Dog</asp:ListItem>
+            <asp:ListItem>Cat</asp:ListItem>
+            <asp:ListItem>Games</asp:ListItem>
+            <asp:ListItem>Football</asp:ListItem>
+            <asp:ListItem>Basketball</asp:ListItem>
+            <asp:ListItem></asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="disliketxt" runat="server" style="z-index: 1; left: 599px; top: 404px; position: absolute">
+            <asp:ListItem>Dog</asp:ListItem>
+            <asp:ListItem>Cat</asp:ListItem>
+            <asp:ListItem>Football</asp:ListItem>
+            <asp:ListItem>Basketball</asp:ListItem>
+            <asp:ListItem>Baseball</asp:ListItem>
+        </asp:DropDownList>
         <asp:Label ID="dislikelbl" runat="server" style="z-index: 1; left: 419px; top: 403px; position: absolute" Text="What do you dislike:"></asp:Label>
-        <asp:TextBox ID="disliketxt" runat="server" style="z-index: 1; left: 552px; top: 403px; position: absolute"></asp:TextBox>
         <asp:Label ID="goallbl" runat="server" style="z-index: 1; left: 808px; top: 403px; position: absolute" Text="What is your goal: "></asp:Label>
         <asp:TextBox ID="goaltxt" runat="server" style="z-index: 1; top: 402px; position: absolute; left: 922px"></asp:TextBox>
         <asp:Label ID="descriptionlbl" runat="server" style="z-index: 1; left: 1175px; top: 404px; position: absolute" Text="Enter Your Description:"></asp:Label>
@@ -101,7 +116,8 @@
             <asp:ListItem>Dating</asp:ListItem>
             <asp:ListItem>1v1</asp:ListItem>
         </asp:DropDownList>
-                <asp:GridView ID="gvProfile" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1" GridLines="None" style="z-index: 1; left: 60px; top: 376px; position: absolute; height: 269px; width: 1366px">
+                <asp:GridView ID="gvProfile" runat="server" AutoGenerateColumns="False" CellPadding="4" GridLines="None" style="z-index: 1; left: 56px; top: 344px; position: absolute; height: 269px; width: 1366px" ForeColor="#333333">
+                    <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="name" HeaderText="Name" />
                 <asp:BoundField DataField="age" HeaderText="Age" />
@@ -117,18 +133,19 @@
                 <asp:BoundField DataField="commitment" HeaderText="Commitment Type" SortExpression="commitment" />
                 <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
             </Columns>
-            <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
-            <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" />
-            <PagerStyle BackColor="#C6C3C6" ForeColor="Black" HorizontalAlign="Right" />
-            <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
-            <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#594B9C" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#33276A" />
+                    <EditRowStyle BackColor="#2461BF" />
+            <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
+            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EFF3FB" />
+            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+            <SortedAscendingCellStyle BackColor="#F5F7FB" />
+            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+            <SortedDescendingCellStyle BackColor="#E9EBEF" />
+            <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-                <asp:Button ID="deletebtn" runat="server" style="z-index: 1; left: 1205px; top: 217px; position: absolute" Text="Delete And Create New" Font-Size="Large" OnClick="deletebtn_Click" />
-        <asp:Button ID="modifybtn" runat="server" Font-Size="Large" OnClick="modifybtn_Click" style="z-index: 1; left: 1301px; top: 132px; position: absolute" Text="Modify" />
+                <asp:Button ID="deletebtn" runat="server" style="z-index: 1; left: 1091px; top: 220px; position: absolute" Text="Delete And Create New" Font-Size="Large" OnClick="deletebtn_Click" />
+        <asp:Button ID="modifybtn" runat="server" Font-Size="Large" OnClick="modifybtn_Click" style="z-index: 1; left: 1244px; top: 112px; position: absolute" Text="Modify" />
         <asp:Image ID="profilePic" runat="server" style="z-index: 1; left: 51px; top: 65px; position: absolute; height: 237px; width: 227px" />
     </form>
 

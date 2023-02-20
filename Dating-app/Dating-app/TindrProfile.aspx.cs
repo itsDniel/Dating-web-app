@@ -32,6 +32,11 @@ namespace Dating_app
                         {
                             control.Visible = false;
                         }
+                        else
+                        {
+                            control.Visible = true;
+                        }
+                        
                     }
                     welcomelbl.Visible = true;
                     greetinglbl.Visible = true;
@@ -50,7 +55,14 @@ namespace Dating_app
                         {
                             control.Visible = false;
                         }
+                        else
+                        {
+                            control.Visible = true;
+                        }
                     }
+                    homebtn.Visible = true;
+                    profilebtn.Visible = true;
+                    logoutbtn.Visible = true;
                     submitbtn.Visible = true;
                     logoutbtn.Visible = true;
 
@@ -105,11 +117,16 @@ namespace Dating_app
                 objDB.DoUpdate(insert.getUpdateCommand(username, name, age, occupation, addr, email, phone, height, like, dislike, goal, commit, des, pic, birthday));
                 foreach (Control control in profileForm.Controls)
                 {
-                    if (control is TextBox || control is Label)
+                    if (control is TextBox || control is Label || control is DropDownList)
                     {
                         control.Visible = false;
                     }
+                    else
+                    {
+                        control.Visible = true;
+                    }
                 }
+                submitbtn.Visible = false;
                 welcomelbl.Visible = true;
                 greetinglbl.Visible = true;
                 greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
@@ -123,11 +140,16 @@ namespace Dating_app
                 objDB.DoUpdate(insert.getInsertCommand(username, name, age, occupation, addr, email, phone, height, like, dislike, goal, commit, des, pic, birthday));
                 foreach (Control control in profileForm.Controls)
                 {
-                    if (control is TextBox || control is Label)
+                    if (control is TextBox || control is Label || control is DropDownList)
                     {
                         control.Visible = false;
                     }
+                    else
+                    {
+                        control.Visible = true;
+                    }
                 }
+                submitbtn.Visible = false;
                 welcomelbl.Visible = true;
                 greetinglbl.Visible = true;
                 greetinglbl.Text = "Here's Your Profile What Would You Like To Do?";
@@ -150,6 +172,9 @@ namespace Dating_app
                     control.Visible = true;
                 }
             }
+            homebtn.Visible = true;
+            profilebtn.Visible = true;
+            logoutbtn.Visible = true;
             welcomelbl.Visible = true;
             submitbtn.Visible = true;
             greetinglbl.Visible = true;
@@ -170,7 +195,15 @@ namespace Dating_app
                 {
                     control.Visible = false;
                 }
+                else
+                {
+                    control.Visible = true;
+                }
             }
+            
+            homebtn.Visible = true;
+            profilebtn.Visible = true;
+            logoutbtn.Visible = true;
             submitbtn.Visible = true;
 
 

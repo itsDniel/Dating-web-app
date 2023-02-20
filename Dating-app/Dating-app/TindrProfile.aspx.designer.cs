@@ -345,7 +345,16 @@ namespace Dating_app
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox liketxt;
+        protected global::System.Web.UI.WebControls.DropDownList liketxt;
+
+        /// <summary>
+        /// disliketxt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList disliketxt;
 
         /// <summary>
         /// dislikelbl control.
@@ -355,15 +364,6 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label dislikelbl;
-
-        /// <summary>
-        /// disliketxt control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox disliketxt;
 
         /// <summary>
         /// goallbl control.
