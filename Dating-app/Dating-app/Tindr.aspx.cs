@@ -79,13 +79,19 @@ namespace Dating_app
                 uname.Value = userNametxt.Text;
                 Response.Cookies.Add(uname);
                 Response.Cookies.Add(cName);
-                Response.Redirect("TindrProfile.aspx");
+                Response.Redirect("TindrMain.aspx");
             }
             else
             {
                 loginTest.Text = "Wrong Username or Password!";
             }
             
+        }
+
+        protected void backbtn_Click(object sender, EventArgs e)
+        {
+            form1.Visible = true;
+            accountForm.Visible = false;
         }
     }
 }

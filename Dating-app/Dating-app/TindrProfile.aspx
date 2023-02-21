@@ -18,6 +18,9 @@
             top: 100px;
             position: absolute;
         }
+        #form1 {
+            height: 820px;
+        }
     </style>
 
 
@@ -46,6 +49,7 @@
             <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -79px; position: absolute; left: 25px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
             
         </div>
+
             <asp:Label ID="greetinglbl" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; top: 5px; position: absolute; left: 438px" Text="Hi There, Let's Get Your Profile Set Up"></asp:Label>
 
         <p>
@@ -103,7 +107,7 @@
             <asp:ListItem>Baseball</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="dislikelbl" runat="server" style="z-index: 1; left: 419px; top: 403px; position: absolute" Text="What do you dislike:"></asp:Label>
-        <asp:Label ID="goallbl" runat="server" style="z-index: 1; left: 808px; top: 403px; position: absolute" Text="What is your goal: "></asp:Label>
+        <asp:Label ID="goallbl" runat="server" style="z-index: 1; left: 772px; top: 403px; position: absolute" Text="What is your goal: "></asp:Label>
         <asp:TextBox ID="goaltxt" runat="server" style="z-index: 1; top: 402px; position: absolute; left: 922px"></asp:TextBox>
         <asp:Label ID="descriptionlbl" runat="server" style="z-index: 1; left: 1175px; top: 404px; position: absolute" Text="Enter Your Description:"></asp:Label>
         <asp:TextBox ID="descriptiontxt" runat="server" style="z-index: 1; left: 1333px; top: 402px; position: absolute"></asp:TextBox>
@@ -116,7 +120,7 @@
             <asp:ListItem>Dating</asp:ListItem>
             <asp:ListItem>1v1</asp:ListItem>
         </asp:DropDownList>
-                <asp:GridView ID="gvProfile" runat="server" AutoGenerateColumns="False" CellPadding="4" GridLines="None" style="z-index: 1; left: 56px; top: 344px; position: absolute; height: 269px; width: 1366px" ForeColor="#333333">
+                <asp:GridView ID="gvProfile" runat="server" CssClass="grid" AutoGenerateColumns="False" CellPadding="4" GridLines="None" style="z-index: 1; left: 54px; top: 354px; position: absolute; height: 269px; width: 1366px" ForeColor="#333333" BorderColor="Black" BorderStyle="None">
                     <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="name" HeaderText="Name" />

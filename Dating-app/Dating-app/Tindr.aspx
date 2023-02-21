@@ -14,6 +14,7 @@
 <body>
     <form id="form1" runat="server">
         <div style="height: 27px">
+           
             <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ErrorMessage="Username missing!" ControlToValidate="userNametxt" ForeColor="Red" style="z-index: 1; left: 248px; top: 64px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ErrorMessage="Password missing!" ControlToValidate="passWordtxt" ForeColor="#FF3300" style="z-index: 1; left: 249px; top: 102px; position: absolute"></asp:RequiredFieldValidator>
             <asp:Button ID="accountBtn" runat="server" style="z-index: 1; left: 95px; top: 154px; position: absolute; height: 27px;" Text="Create Acount" CausesValidation="False" OnClick="accountBtn_Click" />
@@ -46,6 +47,7 @@
          <asp:TextBox ID="userCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 222px; position: absolute; right: 1576px;"></asp:TextBox>
          <asp:TextBox ID="passCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 278px; position: absolute"></asp:TextBox>
          <asp:Label ID="uNameAlertlbl" runat="server" ForeColor="Red" style="z-index: 1; left: 290px; top: 220px; position: absolute" Visible="False">Username is already taken!</asp:Label>
+        <asp:Button ID="backbtn" runat="server" OnClick="backbtn_Click" style="z-index: 1; left: 172px; top: 330px; position: absolute; width: 108px; height: 22px;" Text="Go Back" CausesValidation="False" />
     </form>
 </body>
 </html>

@@ -30,3 +30,20 @@ li a:hover {
 .hidden{
     display: none;
 }
+
+table.grid td, th{
+    border: solid 1px black;
+}
+
+profileT{
+    border: 1px solid black
+}
+
+profileT th, profileT td{
+    border: 1px solid black;
+}
+
+rprProfile tr, rprProfile td{
+    border: 1px solid black;
+    text-align: center;
+}

@@ -24,6 +24,7 @@ namespace Dating_app
                 welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
                 int userCount = (int)objDB.ExecuteScalarFunction(insert.executeScalar(username));
                 objDB.CloseConnection();
+                
                 if (userCount > 0)
                 {
                     foreach (Control control in profileForm.Controls)
@@ -156,6 +157,7 @@ namespace Dating_app
                 profilePic.ImageUrl = objDB.GetDataSet(insert.getPic(username)).Tables[0].Rows[0]["photo"].ToString();
                 gvProfile.DataSource = objDB.GetDataSet(insert.getProfile(username));
                 gvProfile.DataBind();
+
             }
         }
 

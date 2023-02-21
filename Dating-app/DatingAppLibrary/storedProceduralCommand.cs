@@ -92,6 +92,13 @@ namespace DatingAppLibrary
             return uNamecheck;
         }
 
+        //Use this to check if record exist in userLike Table
+        public SqlCommand executeScalarLike(string username1, string username2)
+        {
+            SqlCommand uNamecheck = new SqlCommand("SELECT COUNT(*) FROM userLike WHERE UserThatLike = '" + username1 + "' AND UserThatWasLiked = '" + username2 + "'");
+            return uNamecheck;
+        }
+
         //Use this to insert data into Login table
         public SqlCommand insertLogin(string username, string password, string fname, string lname, string email)
         {
@@ -119,5 +126,65 @@ namespace DatingAppLibrary
             SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
             return name;
         }
+
+        //Use this to retrive your own info
+        public SqlCommand getInfo(string username)
+        {
+            SqlCommand cityCommand = new SqlCommand("getPersonalInfo");
+            cityCommand.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            cityCommand.CommandType = CommandType.StoredProcedure;
+            return cityCommand;
+        }
+
+        //Use this to retrieve all users with same city
+        public SqlCommand getInfo(string username, string city)
+        {
+            SqlCommand cityCommand = new SqlCommand("getCity");
+            cityCommand.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            cityCommand.Parameters.Add("@city", SqlDbType.VarChar).Value = city;
+            cityCommand.CommandType = CommandType.StoredProcedure;
+            return cityCommand;
+        }
+
+        //Use this to retrieve all users with same like
+        public SqlCommand getLike(string username, string like)
+        {
+            SqlCommand command = new SqlCommand("getLike");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@like", SqlDbType.VarChar).Value = like;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to retrieve all users with the same dislike
+        public SqlCommand getDislike(string username, string dislike)
+        {
+            SqlCommand command = new SqlCommand("getDislike");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@dislike", SqlDbType.VarChar).Value = dislike;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to retrieve all users with the same commitment type
+        public SqlCommand getCommit(string username, string commit)
+        {
+            SqlCommand command = new SqlCommand("getCommitment");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@commit", SqlDbType.VarChar).Value = commit;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to update the userLike table
+        public SqlCommand insertLike(string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("updateUserLike");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
     }
 }
