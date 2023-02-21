@@ -9,6 +9,8 @@ using System.Data.SqlClient;
 using Utilities;
 using DatingAppLibrary;
 
+
+
 namespace Dating_app
 {
     public partial class TindrMain : System.Web.UI.Page
@@ -17,16 +19,20 @@ namespace Dating_app
         {
             if(Request.Cookies["Username"] != null)
             {
+                string status = "Unview";
                 table.Visible = false;
                 Time now = new Time();
                 string username = Request.Cookies["Username"].Value.ToString();
-                welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
+
                 storedProceduralCommand insert = new storedProceduralCommand();
                 DBConnect objDB = new DBConnect();
                 int userCount = (int)objDB.ExecuteScalarFunction(insert.executeScalar(username));
+                objDB.CloseConnection();
+                int notiCount = (int)objDB.ExecuteScalarFunction(insert.matchNotification(username, status));
+                objDB.CloseConnection();
                 if(userCount > 0)
                 {
-
+                    welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + notiCount + " New Match" ;
                 }
                 else
                 {
@@ -133,6 +139,7 @@ namespace Dating_app
             GridViewRow row = (GridViewRow)(sender as Control).Parent.Parent;
             int rowIndex = row.RowIndex;
             string username = gvCity.DataKeys[rowIndex].Value.ToString();
+            profilebtn.Enabled = false;
             table.Visible = true;
             rprProfile.Visible = true;
             profileImg.Visible = true;
@@ -153,24 +160,59 @@ namespace Dating_app
             likebtn.Visible = false;
             rprProfile.Visible = false;
             profileImg.Visible = false;
+            profilebtn.Enabled = true;
 
         }
 
         protected void likebtn_Click(object sender, EventArgs e)
         {
+            DataSet ds1 = new DataSet();
+            DataSet ds2 = new DataSet();
+            string unviewed = "Unview";
+            string userthatLike = "";
+            string userthatwasLiked = "";
             closebtn.Visible = true;
             DBConnect objDB = new DBConnect();
             storedProceduralCommand command = new storedProceduralCommand();
             string username1 = Request.Cookies["Username"].Value.ToString();
             string username2 = usernamePlaceholder.Text;
+            ds1 = objDB.GetDataSet(command.getUserThatLike(username1, username2));
+            ds2 = objDB.GetDataSet(command.getUserWasLiked(username1, username2));
+            if (ds1.Tables[0].Rows.Count > 0)
+            {
+                userthatLike = ds1.Tables[0].Rows[0]["UserThatLike"].ToString();
+            }
+            else
+            {
+                userthatLike = " ";
+            }
+            if (ds2.Tables[0].Rows.Count > 0){
+                userthatwasLiked = ds2.Tables[0].Rows[0]["UserThatWasLiked"].ToString();
+            }
+            else
+            {
+                userthatwasLiked = " ";
+            }
             instructionlbl.Text = "You Liked " + namePlaceholder.Text + ", If They Like You Back Then Your Match Will Show Up In The Match Page";
             int count = (int)objDB.ExecuteScalarFunction(command.executeScalarLike(username1, username2));
             objDB.CloseConnection();
-            if (count > 0)
+            int reverseCount = (int)objDB.ExecuteScalarFunction(command.executeScalarLike(username2, username1));
+            objDB.CloseConnection();
+            if (count > 0 || reverseCount >0)
             {
-                instructionlbl.Text = "You Either Already Liked This User Or Was Liked By This User, Please Go To My Match Page To See The Match";
-                nobtn.Visible = false;
-                likebtn.Visible = false;
+                if (username1 == userthatLike) 
+                { 
+                    instructionlbl.Text = "You Have Liked This User Already";
+                    nobtn.Visible = false;
+                    likebtn.Visible = false;
+                }
+                else if(username1 == userthatwasLiked)
+                {
+                    instructionlbl.Text = "This User Liked You Already, So You Have A Match";
+                    nobtn.Visible = false;
+                    likebtn.Visible = false;
+                    objDB.DoUpdate(command.updateView(username2, unviewed));
+                }
             }
             else
             {
@@ -189,6 +231,17 @@ namespace Dating_app
             profileImg.Visible = false;
             closebtn.Visible = false;
             instructionlbl.Text = "Let's Look For People That Have Something In Common With You";
+        }
+
+        protected void matchbtn_Click(object sender, EventArgs e)
+        {
+            HttpCookie cName = new HttpCookie("Username");
+            HttpCookie uName = new HttpCookie("Name");
+            cName.Value = Request.Cookies["Username"].Value.ToString();
+            uName.Value = Request.Cookies["Name"].Value.ToString();
+            Response.Cookies.Add(uName);
+            Response.Cookies.Add(cName);
+            Response.Redirect("TindrMatch.aspx");
         }
     }
 }

@@ -186,5 +186,53 @@ namespace DatingAppLibrary
             return command;
         }
 
+        //Use this to get user that was liked in userLike table
+        public SqlCommand getUserWasLiked(string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("getUserThatWasLiked");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to get user that like in userLike table
+        public SqlCommand getUserThatLike(string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("getUserThatLike");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to update the view status for User That Like, username must be the one in the UserThatLike column in userLike table
+        public SqlCommand updateView(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("insertViewStatus");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to get how many match that user have
+        public SqlCommand matchNotification(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("matchNotification");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to get the list of matched people
+        public SqlCommand getMatch(string username)
+        {
+            SqlCommand command = new SqlCommand("getMatch");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
     }
 }

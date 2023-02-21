@@ -233,5 +233,16 @@ namespace Dating_app
         {
             this.Page_Load(sender, e);
         }
+
+        protected void matchbtn_Click(object sender, EventArgs e)
+        {
+            HttpCookie cName = new HttpCookie("Username");
+            HttpCookie uName = new HttpCookie("Name");
+            cName.Value = Request.Cookies["Username"].Value.ToString();
+            uName.Value = Request.Cookies["Name"].Value.ToString();
+            Response.Cookies.Add(uName);
+            Response.Cookies.Add(cName);
+            Response.Redirect("TindrMatch.aspx");
+        }
     }
 }
