@@ -229,6 +229,7 @@ namespace Dating_app
             timelbl.Visible = false;
             timetxt.Visible = false;
             updatePlanbtn.Visible = false;
+            cancelbtn.Visible = false;
         }
 
         protected void checkMatchbtn_Click(object sender, EventArgs e)
@@ -245,10 +246,12 @@ namespace Dating_app
             timelbl.Visible = false;
             timetxt.Visible = false;
             updatePlanbtn.Visible = false;
+            cancelbtn.Visible = false;
         }
 
         protected void datePlanbtn_Click(object sender, EventArgs e)
         {
+            cancelbtn.Visible = true;
             descriptionlbl.Visible = true;
             descriptiontxt.Visible = true;
             locationlbl.Visible = true;
@@ -304,7 +307,9 @@ namespace Dating_app
             storedProceduralCommand command = new storedProceduralCommand();
             string currentUser = Request.Cookies["Username"].Value.ToString();
             objDB.DoUpdate(command.deleteDatePlan(currentUser));
-            instructionlbl = "You Cancel The Date You Prick!!";
+            instructionlbl.Text = "You Cancel The Date You Prick!!";
+            objDB.DoUpdate(command.unMatch(currentUser, username));
+            objDB.DoUpdate(command.unMatch(username, currentUser));
         }
     }
 }

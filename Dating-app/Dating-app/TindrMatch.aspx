@@ -180,19 +180,19 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-        <asp:Label ID="locationlbl" runat="server" style="z-index: 1; left: 1364px; top: 153px; position: absolute" Text="Date Location" Visible="False"></asp:Label>
-        <asp:TextBox ID="locationtxt" runat="server" style="z-index: 1; left: 1344px; top: 181px; position: absolute" Visible="False"></asp:TextBox>
+        <asp:Label ID="locationlbl" runat="server" style="z-index: 1; left: 1290px; top: 153px; position: absolute" Text="Date Location" Visible="False"></asp:Label>
+        <asp:TextBox ID="locationtxt" runat="server" style="z-index: 1; left: 1266px; top: 186px; position: absolute" Visible="False"></asp:TextBox>
         <asp:Button ID="checkDate" runat="server" CausesValidation="False" OnClick="checkDate_Click" style="z-index: 1; left: 77px; top: 143px; position: absolute" Text="Check Your Date Request" />
         <asp:Button ID="checkMatchbtn" runat="server" CausesValidation="False" OnClick="checkMatchbtn_Click" style="z-index: 1; left: 323px; top: 142px; position: absolute" Text="Check Your Match" />
-        <asp:Label ID="timelbl" runat="server" style="z-index: 1; left: 1373px; top: 231px; position: absolute" Text="Date Time" Visible="False"></asp:Label>
-        <asp:TextBox ID="timetxt" runat="server" style="z-index: 1; left: 1341px; top: 266px; position: absolute; right: 303px" Visible="False"></asp:TextBox>
-        <asp:Label ID="descriptionlbl" runat="server" style="z-index: 1; left: 1353px; top: 322px; position: absolute" Text="Date Description" Visible="False"></asp:Label>
-        <asp:TextBox ID="descriptiontxt" runat="server" style="z-index: 1; left: 1341px; top: 360px; position: absolute" Visible="False"></asp:TextBox>
-        <asp:Button ID="updatePlanbtn" runat="server" OnClick="updatePlanbtn_Click" style="z-index: 1; left: 1303px; top: 441px; position: absolute" Text="Update Plan" Visible="False" />
-        <asp:Button ID="cancelbtn" runat="server" OnClick="cancelbtn_Click" style="z-index: 1; left: 1465px; top: 440px; position: absolute" Text="Cancel Date" Visible="False" />
-        <asp:RequiredFieldValidator ID="locationValidator" runat="server" ControlToValidate="locationtxt" ErrorMessage="Missing Location" ForeColor="Red" style="z-index: 1; left: 1495px; top: 180px; position: absolute"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="descriptionValidator" runat="server" ControlToValidate="descriptiontxt" ErrorMessage="Missing Description" ForeColor="Red" style="z-index: 1; left: 1501px; top: 358px; position: absolute"></asp:RequiredFieldValidator>
-        <asp:RequiredFieldValidator ID="timeValidator" runat="server" ControlToValidate="timetxt" ErrorMessage="Missing Time" ForeColor="Red" style="z-index: 1; top: 265px; position: absolute; left: 1505px"></asp:RequiredFieldValidator>
+        <asp:Label ID="timelbl" runat="server" style="z-index: 1; left: 1305px; top: 233px; position: absolute" Text="Date Time" Visible="False"></asp:Label>
+        <asp:TextBox ID="timetxt" runat="server" style="z-index: 1; left: 1261px; top: 267px; position: absolute; right: 343px" Visible="False"></asp:TextBox>
+        <asp:Label ID="descriptionlbl" runat="server" style="z-index: 1; left: 1279px; top: 321px; position: absolute" Text="Date Description" Visible="False"></asp:Label>
+        <asp:TextBox ID="descriptiontxt" runat="server" style="z-index: 1; left: 1263px; top: 363px; position: absolute" Visible="False"></asp:TextBox>
+        <asp:Button ID="updatePlanbtn" runat="server" OnClick="updatePlanbtn_Click" style="z-index: 1; left: 1195px; top: 436px; position: absolute" Text="Update Plan" Visible="False" />
+        <asp:Button ID="cancelbtn" runat="server" OnClick="cancelbtn_Click" style="z-index: 1; left: 1375px; top: 437px; position: absolute" Text="Cancel Date" Visible="False" CausesValidation="False" />
+        <asp:RequiredFieldValidator ID="locationValidator" runat="server" ControlToValidate="locationtxt" ErrorMessage="Missing Location" ForeColor="Red" style="z-index: 1; left: 1462px; top: 188px; position: absolute"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="descriptionValidator" runat="server" ControlToValidate="descriptiontxt" ErrorMessage="Missing Description" ForeColor="Red" style="z-index: 1; left: 1449px; top: 360px; position: absolute"></asp:RequiredFieldValidator>
+        <asp:RequiredFieldValidator ID="timeValidator" runat="server" ControlToValidate="timetxt" ErrorMessage="Missing Time" ForeColor="Red" style="z-index: 1; top: 269px; position: absolute; left: 1462px"></asp:RequiredFieldValidator>
     </form>
     
             </ul>
