@@ -23,16 +23,32 @@ namespace Dating_app
                 table.Visible = false;
                 Time now = new Time();
                 string username = Request.Cookies["Username"].Value.ToString();
-
                 storedProceduralCommand insert = new storedProceduralCommand();
                 DBConnect objDB = new DBConnect();
                 int userCount = (int)objDB.ExecuteScalarFunction(insert.executeScalar(username));
                 objDB.CloseConnection();
                 int notiCount = (int)objDB.ExecuteScalarFunction(insert.matchNotification(username, status));
                 objDB.CloseConnection();
-                if(userCount > 0)
+                int dateRequest = (int)objDB.ExecuteScalarFunction(insert.getDateRequest(username, status));
+                objDB.CloseConnection();
+                if (userCount > 0)
                 {
-                    welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + notiCount + " New Match" ;
+                    if (notiCount > 0 && dateRequest > 0)
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + notiCount + " New Match And " + dateRequest + " New Date Request";
+                    }
+                    else if(notiCount > 0)
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + notiCount + " New Match";
+                    }
+                    else if( dateRequest > 0)
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + dateRequest + " New Date Requests";
+                    }
+                    else
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
+                    }
                 }
                 else
                 {
@@ -131,7 +147,7 @@ namespace Dating_app
 
         protected void profilebtn_Click1(object sender, EventArgs e)
         {
-            
+            closebtn.Visible = false;
             nobtn.Visible = true;
             likebtn.Visible = true;
             DBConnect objDB = new DBConnect();
@@ -139,7 +155,6 @@ namespace Dating_app
             GridViewRow row = (GridViewRow)(sender as Control).Parent.Parent;
             int rowIndex = row.RowIndex;
             string username = gvCity.DataKeys[rowIndex].Value.ToString();
-            profilebtn.Enabled = false;
             table.Visible = true;
             rprProfile.Visible = true;
             profileImg.Visible = true;
@@ -160,7 +175,7 @@ namespace Dating_app
             likebtn.Visible = false;
             rprProfile.Visible = false;
             profileImg.Visible = false;
-            profilebtn.Enabled = true;
+            
 
         }
 
@@ -208,10 +223,22 @@ namespace Dating_app
                 }
                 else if(username1 == userthatwasLiked)
                 {
-                    instructionlbl.Text = "This User Liked You Already, So You Have A Match";
-                    nobtn.Visible = false;
-                    likebtn.Visible = false;
-                    objDB.DoUpdate(command.updateView(username2, unviewed));
+                    int userCount = (int)objDB.ExecuteScalarFunction(command.executeScalarLike(username1, username2));
+                    objDB.CloseConnection();
+                    if (userCount > 0)
+                    {
+                        instructionlbl.Text = "You Already Match With This User";
+                        
+                    }
+                    else
+                    {
+                        instructionlbl.Text = "This User Liked You Already, So You Have A Match";
+                        nobtn.Visible = false;
+                        likebtn.Visible = false;
+                        objDB.DoUpdate(command.updateView(username2, unviewed, username1));
+                        objDB.DoUpdate(command.insertLike(username1, username2));
+                        objDB.DoUpdate(command.updateView(username1, unviewed, username2));
+                    }
                 }
             }
             else

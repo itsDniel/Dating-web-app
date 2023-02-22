@@ -17,16 +17,36 @@ namespace Dating_app
         {
             if (Request.Cookies["Username"] != null)
             {
+                string status = "Unview";
                 DBConnect objDB = new DBConnect();
                 storedProceduralCommand insert = new storedProceduralCommand();
                 Time now = new Time();
                 string username = Request.Cookies["Username"].Value.ToString();
-                welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
                 int userCount = (int)objDB.ExecuteScalarFunction(insert.executeScalar(username));
                 objDB.CloseConnection();
-                
+                int notiCount = (int)objDB.ExecuteScalarFunction(insert.matchNotification(username, status));
+                objDB.CloseConnection();
+                int dateRequest = (int)objDB.ExecuteScalarFunction(insert.getDateRequest(username, status));
+                objDB.CloseConnection();
+
                 if (userCount > 0)
                 {
+                    if (notiCount > 0 && dateRequest > 0)
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + notiCount + " New Match And " + dateRequest + " New Date Request";
+                    }
+                    else if (notiCount > 0)
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + notiCount + " New Match";
+                    }
+                    else if (dateRequest > 0)
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString() + "<br>" + "You Have " + dateRequest + " New Date Requests";
+                    }
+                    else
+                    {
+                        welcomelbl.Text = now.getTime() + Request.Cookies["Name"].Value.ToString();
+                    }
                     foreach (Control control in profileForm.Controls)
                     {
                         if (control is TextBox || control is Label || control is DropDownList)

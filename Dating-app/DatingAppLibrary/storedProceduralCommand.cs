@@ -207,9 +207,19 @@ namespace DatingAppLibrary
         }
 
         //Use this to update the view status for User That Like, username must be the one in the UserThatLike column in userLike table
-        public SqlCommand updateView(string username, string status)
+        public SqlCommand updateView(string username, string status, string username2)
         {
             SqlCommand command = new SqlCommand("insertViewStatus");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+        //Use thiis to update the view status when user have seen their matches
+        public SqlCommand updateView(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("notificationSeen");
             command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
             command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
             command.CommandType = CommandType.StoredProcedure;
@@ -234,5 +244,117 @@ namespace DatingAppLibrary
             command.CommandType = CommandType.StoredProcedure;
             return command;
         }
+
+        //Use this for unmatch button in TindrMatch and to delete record in userLike table
+        public SqlCommand unMatch (string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("unMatch");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to check for record in Date table
+        public SqlCommand checkDate(string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("checkDateRequest");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to update Date Table when current user send date request
+        public SqlCommand insertDate(string username1, string username2, string status)
+        {
+            SqlCommand command = new SqlCommand("insertDateRequest");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.Parameters.Add("@viewStatus", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to retrieve info about the person who sent the date request
+        public SqlCommand getDateRequest(string username)
+        {
+            SqlCommand command = new SqlCommand("getDateRequest");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to see how many date request the current user has
+        public SqlCommand getDateRequest(string username, string status)
+        {
+            SqlCommand command = new SqlCommand("checkPersonalDateRequest");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@status", SqlDbType.VarChar).Value = status;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to delete record from Date table
+        public SqlCommand deleteDate(string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("deleteDate");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to insert users to DatePlan table
+        public SqlCommand insertDatePlan(string user1, string user2, string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("insertDatePlan");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = user1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = user2;
+            command.Parameters.Add("@username1_Name", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2_Name", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to check datePlan table for record
+        public SqlCommand checkDatePlan(string user1)
+        {
+            SqlCommand command = new SqlCommand("checkDatePlanRecord");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = user1;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to retrive date plan
+        public SqlCommand getDatePlan(string user1)
+        {
+            SqlCommand command = new SqlCommand("getDatePlan");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = user1;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to update the date plan table
+        public SqlCommand updateDatePlan(string username, string time, string location, string description)
+        {
+            SqlCommand command = new SqlCommand("updateDatePlan");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@time", SqlDbType.VarChar).Value = time;
+            command.Parameters.Add("@location", SqlDbType.VarChar).Value = location;
+            command.Parameters.Add("@description", SqlDbType.VarChar).Value = description;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
+        //Use this to delete date plan table record
+        public SqlCommand deleteDatePlan(string username)
+        {
+            SqlCommand command = new SqlCommand("deleteDatePlan");
+            command.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
     }
 }

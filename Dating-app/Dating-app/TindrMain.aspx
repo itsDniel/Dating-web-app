@@ -19,16 +19,13 @@
             height: 79px;
             width: 818px;
         }
-        .auto-style1 {
-            height: 23px;
+        .auto-style2 {
+            width: 72px;
         }
     </style>
 </head>
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <form id="form1" runat="server">
-
-        <header>
+            <header>
         <nav id="nav">
             <ul>
             <li><a href="#" onclick="document.getElementById('<%= homebtn.ClientID %>').click(); return false;">Home</a></li>
@@ -38,6 +35,10 @@
             </ul>
         </nav>
     </header>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <form id="form1" runat="server">
+
+
 
         <div>
             <asp:Button ID="matchbtn" runat="server" CssClass="hidden" CausesValidation="False" OnClick="matchbtn_Click" Text="Button" />
@@ -101,7 +102,7 @@
                 <th>Height</th>
                 <th>Like</th>
                 <th>Dislike</th>
-                <th>Goal</th>
+                <th class="auto-style2">Goal</th>
                 <th>Commitment</th>
                 <th>Description</th>
             </tr>

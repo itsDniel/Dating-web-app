@@ -14,8 +14,8 @@
             height: 868px;
             width: 1548px;
             z-index: 1;
-            left: 21px;
-            top: 100px;
+            left: 19px;
+            top: 130px;
             position: absolute;
         }
         #form1 {
@@ -52,7 +52,7 @@
 
         <asp:Button ID="homebtn" runat="server" CausesValidation="False" CssClass="hidden" OnClick="homebtn_Click" Text="Button" style="z-index: 1; left: 1407px; top: 66px; position: absolute" />
         <div>
-            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -79px; position: absolute; left: 25px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
+            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -119px; position: absolute; left: 22px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
             
         </div>
 
