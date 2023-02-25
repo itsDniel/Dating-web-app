@@ -20,7 +20,7 @@ namespace Dating_app
             if(Request.Cookies["Username"] != null)
             {
                 string status = "Unview";
-                table.Visible = false;
+                table_header.Visible = false;
                 Time now = new Time();
                 string username = Request.Cookies["Username"].Value.ToString();
                 storedProceduralCommand insert = new storedProceduralCommand();
@@ -155,7 +155,7 @@ namespace Dating_app
             GridViewRow row = (GridViewRow)(sender as Control).Parent.Parent;
             int rowIndex = row.RowIndex;
             string username = gvCity.DataKeys[rowIndex].Value.ToString();
-            table.Visible = true;
+            table_header.Visible = true;
             rprProfile.Visible = true;
             profileImg.Visible = true;
             rprProfile.DataSource = objDB.GetDataSet(command.getProfile(username));
@@ -169,8 +169,8 @@ namespace Dating_app
 
         protected void nobtn_Click(object sender, EventArgs e)
         {
-            
-            table.Visible = false;
+
+            table_header.Visible = false;
             nobtn.Visible = false;
             likebtn.Visible = false;
             rprProfile.Visible = false;
@@ -251,7 +251,7 @@ namespace Dating_app
 
         protected void closebtn_Click(object sender, EventArgs e)
         {
-            table.Visible = false;
+            table_header.Visible = false;
             nobtn.Visible = false;
             likebtn.Visible = false;
             rprProfile.Visible = false;
@@ -270,5 +270,6 @@ namespace Dating_app
             Response.Cookies.Add(cName);
             Response.Redirect("TindrMatch.aspx");
         }
+
     }
 }

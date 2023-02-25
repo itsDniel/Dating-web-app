@@ -34,7 +34,7 @@
         <asp:Button ID="logoutbtn" runat="server" CssClass="hidden" CausesValidation="False" Text="Button" OnClick="logoutbtn_Click" />
         <asp:Button ID="matchbtn" runat="server" CssClass="hidden" CausesValidation="False" OnClick="matchbtn_Click" Text="Button" />
     
-        <asp:Label ID="welcomelbl" runat="server" Font-Size="X-Large" ForeColor="White" style="z-index: 1; left: 65px; top: -97px; position: absolute"></asp:Label>
+        <asp:Label ID="welcomelbl" runat="server" Font-Size="X-Large" ForeColor="White" style="z-index: 1; left: 20px; top: -102px; position: absolute"></asp:Label>
         <asp:Label ID="instructionlbl" runat="server" Font-Size="X-Large" style="z-index: 1; left: 81px; top: 53px; position: absolute" Text="Welcome To Your Match Page, Here Are Your Matches"></asp:Label>
         <asp:Button ID="okbtn" runat="server" CausesValidation="False" OnClick="okbtn_Click" style="z-index: 1; left: 82px; top: 102px; position: absolute; height: 24px" Text="Gotcha" Visible="False" />
         <asp:GridView ID="gvMatch" runat="server" AutoGenerateColumns="False" DataKeyNames="username" style="z-index: 1; left: 77px; top: 188px; position: absolute; height: 152px; width: 232px" CellPadding="4" ForeColor="#333333" GridLines="None">

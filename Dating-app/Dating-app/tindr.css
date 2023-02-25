@@ -1,5 +1,10 @@
-﻿#nav {
-    background-color: #FF1654;
+﻿body {
+    background-image: url(http://news.wovns.com/wp-content/uploads/2016/07/Screen-Shot-2016-07-11-at-2.23.15-PM.png);
+    background-size: cover;
+}
+
+#nav {
+    background-color: mediumpurple;
     padding: 5px;
     text-align: right;
     height: 10%;
@@ -27,30 +32,12 @@ a {
 }
 
 li a:hover {
-    background-color: #F3FFBD;
-    color: #FF1654;
-    padding: 1%;
+    background-color: white;
+    color: black;
 } 
 
 .hidden{
     display: none;
-}
-
-table.grid td, th{
-    border: solid 1px black;
-}
-
-profileT{
-    border: 1px solid black
-}
-
-profileT th, profileT td{
-    border: 1px solid black;
-}
-
-rprProfile tr, rprProfile td{
-    border: 1px solid black;
-    text-align: center;
 }
 
 #profileForm{
@@ -63,4 +50,48 @@ rprProfile tr, rprProfile td{
 
 #form1{
     width: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.header, .repeater {
+    display: flex;
+    flex-direction: column;
+}
+
+.header table, .repeater table {
+        width: 27%;
+        border-collapse: collapse;
+}
+
+.header th, .repeater td {
+        padding: 10px;
+}
+
+#table_header {
+    display: flex;
+    flex-direction: column;
+}
+
+#table_body {
+    display: flex;
+    flex-direction: column;
+}
+
+#myPanel1 {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height: 30%;
+}
+
+#myPanel2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30%;
 }

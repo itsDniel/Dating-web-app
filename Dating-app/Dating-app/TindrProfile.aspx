@@ -52,7 +52,7 @@
 
         <asp:Button ID="homebtn" runat="server" CausesValidation="False" CssClass="hidden" OnClick="homebtn_Click" Text="Button" style="z-index: 1; left: 1407px; top: 66px; position: absolute" />
         <div>
-            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -119px; position: absolute; left: 22px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
+            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -126px; position: absolute; left: 6px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
             
         </div>
 
@@ -154,8 +154,8 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-                <asp:Button ID="deletebtn" runat="server" style="z-index: 1; left: 1091px; top: 220px; position: absolute" Text="Delete And Create New" Font-Size="Large" OnClick="deletebtn_Click" />
-        <asp:Button ID="modifybtn" runat="server" Font-Size="Large" OnClick="modifybtn_Click" style="z-index: 1; left: 1244px; top: 112px; position: absolute" Text="Modify" />
+                <asp:Button ID="deletebtn" runat="server" style="z-index: 1; left: 729px; top: 142px; position: absolute" Text="Delete And Create New" Font-Size="Large" OnClick="deletebtn_Click" />
+        <asp:Button ID="modifybtn" runat="server" Font-Size="Large" OnClick="modifybtn_Click" style="z-index: 1; left: 818px; top: 68px; position: absolute" Text="Modify" />
         <asp:Image ID="profilePic" runat="server" style="z-index: 1; left: 51px; top: 65px; position: absolute; height: 237px; width: 227px" />
     </form>
 
