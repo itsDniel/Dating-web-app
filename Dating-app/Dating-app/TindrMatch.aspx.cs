@@ -308,8 +308,7 @@ namespace Dating_app
             string currentUser = Request.Cookies["Username"].Value.ToString();
             objDB.DoUpdate(command.deleteDatePlan(currentUser));
             instructionlbl.Text = "You Cancel The Date You Prick!!";
-            objDB.DoUpdate(command.unMatch(currentUser, username));
-            objDB.DoUpdate(command.unMatch(username, currentUser));
+
         }
     }
 }
