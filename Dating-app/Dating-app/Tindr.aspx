@@ -20,16 +20,16 @@
     <form id="form1" runat="server">
      
            
-           <asp:Panel ID="Panel1" runat="server" Height="511px" style="z-index: 2; left: 44%; top: 20%; position: absolute; height: 511px; width: 280px">
+           <asp:Panel ID="Panel1" runat="server" Height="511px" style="z-index: 2; left: 44%; top: 20%; position: absolute; height: 511px; width: 280px" BackColor="#CC99FF" ForeColor="White">
            
             <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ErrorMessage="Username missing!" ControlToValidate="userNametxt" ForeColor="Red" style="z-index: 1; left: 248px; top: 64px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ErrorMessage="Password missing!" ControlToValidate="passWordtxt" ForeColor="#FF3300" style="z-index: 1; left: 249px; top: 102px; position: absolute"></asp:RequiredFieldValidator>
-            <asp:Button ID="accountBtn" runat="server" style="z-index: 1; left: 95px; top: 154px; position: absolute; height: 27px;" Text="Create Acount" CausesValidation="False" OnClick="accountBtn_Click" />
+            <asp:Button ID="accountBtn" runat="server" style="z-index: 1; left: 95px; top: 154px; position: absolute; height: 27px;" Text="Create Acount" CausesValidation="False" OnClick="accountBtn_Click" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" />
             <asp:Label ID="userNamelbl" runat="server" style="z-index: 1; left: 13px; top: 67px; position: absolute; height: 18px" Text="Username: "></asp:Label>
             <asp:Label ID="passWordlbl" runat="server" style="z-index: 1; left: 15px; top: 101px; position: absolute" Text="Password: "></asp:Label>
-            <asp:TextBox ID="userNametxt" runat="server" style="z-index: 1; left: 97px; top: 64px; position: absolute"></asp:TextBox>
+            <asp:TextBox ID="userNametxt" runat="server" style="z-index: 1; left: 97px; top: 64px; position: absolute" BackColor="White"></asp:TextBox>
             <asp:TextBox ID="passWordtxt" TextMode="Password" runat="server" style="z-index: 1; left: 96px; top: 102px; position: absolute"></asp:TextBox>
-            <asp:Button ID="loginBtn" runat="server" style="z-index: 1; left: 16px; top: 155px; position: absolute; height: 26px; width: 54px" Text="Login" OnClick="loginBtn_Click" />
+            <asp:Button ID="loginBtn" runat="server" style="z-index: 1; left: 16px; top: 155px; position: absolute; height: 26px; width: 54px" Text="Login" OnClick="loginBtn_Click" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" />
             <asp:Label ID="loginTest" runat="server" style="z-index: 1; left: 279px; top: 82px; position: absolute" Font-Size="Large" ForeColor="Red"></asp:Label>
         </asp:Panel>
 
@@ -38,7 +38,7 @@
     </form>
     <form id="accountForm" runat="server">
 
-        <asp:Panel ID="Panel2" runat="server" Height="511px" style="z-index: 1; left: 44%; top: 20%; position: absolute; height: 511px; width: 472px">
+        <asp:Panel ID="Panel2" runat="server" Height="511px" style="z-index: 1; left: 44%; top: 20%; position: absolute; height: 511px; width: 472px" BackColor="#CC99FF" ForeColor="White">
         <asp:Label ID="Label1" runat="server" style="z-index: 1; left: 15px; top: 51px; position: absolute" Text="Please enter your info"></asp:Label>
         <asp:Label ID="fnamelbl" runat="server" style="z-index: 1; left: 8px; top: 106px; position: absolute" Text="First Name:"></asp:Label>
         <asp:Label ID="lnamelbl" runat="server" style="z-index: 1; left: 8px; top: 144px; position: absolute" Text="Last Name: "></asp:Label>
@@ -50,14 +50,14 @@
         <asp:RequiredFieldValidator ID="lNameValidator" runat="server" ErrorMessage="Last Name missing!" ControlToValidate="lNametxt" ForeColor="#FF3300" style="z-index: 1; left: 288px; top: 145px; position: absolute"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="passCreationValidator" runat="server" ErrorMessage="Password missing!" ControlToValidate="passCreationtxt" ForeColor="#FF3300" style="z-index: 1; left: 286px; top: 284px; position: absolute"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="userCreationValidator" runat="server" ErrorMessage="Username missing!" ControlToValidate="userCreationtxt" ForeColor="#FF3300" style="z-index: 1; left: 288px; top: 234px; position: absolute"></asp:RequiredFieldValidator>
-         <asp:Button ID="createAccountbtn" runat="server" style="z-index: 1; left: 22px; top: 329px; position: absolute" Text="Create Account" OnClick="createAccountbtn_Click" />
+         <asp:Button ID="createAccountbtn" runat="server" style="z-index: 1; left: 22px; top: 329px; position: absolute" Text="Create Account" OnClick="createAccountbtn_Click" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" />
          <asp:TextBox ID="fNametxt" runat="server" style="z-index: 1; left: 101px; top: 104px; position: absolute"></asp:TextBox>
          <asp:TextBox ID="lNametxt" runat="server" style="z-index: 1; left: 103px; top: 143px; position: absolute"></asp:TextBox>
          <asp:TextBox ID="emailtxt" runat="server" style="z-index: 1; left: 105px; top: 184px; position: absolute"></asp:TextBox>
          <asp:TextBox ID="userCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 230px; position: absolute; right: 239px;"></asp:TextBox>
          <asp:TextBox ID="passCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 278px; position: absolute"></asp:TextBox>
          <asp:Label ID="uNameAlertlbl" runat="server" ForeColor="Red" style="z-index: 1; left: 288px; top: 234px; position: absolute" Visible="False">Username is already taken!</asp:Label>
-        <asp:Button ID="backbtn" runat="server" OnClick="backbtn_Click" style="z-index: 1; left: 172px; top: 327px; position: absolute; width: 117px; height: 31px;" Text="Go Back" CausesValidation="False" />
+        <asp:Button ID="backbtn" runat="server" OnClick="backbtn_Click" style="z-index: 1; left: 172px; top: 327px; position: absolute; width: 117px; height: 31px;" Text="Go Back" CausesValidation="False" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" />
             
     </asp:Panel>
 
