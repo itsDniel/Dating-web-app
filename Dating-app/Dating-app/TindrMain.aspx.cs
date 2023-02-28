@@ -147,9 +147,12 @@ namespace Dating_app
 
         protected void profilebtn_Click1(object sender, EventArgs e)
         {
+            instructionlbl.Text = "Let's Look For People That Have Something In Common With You";
             closebtn.Visible = false;
             nobtn.Visible = true;
             likebtn.Visible = true;
+            table_header.Visible = false;
+            rprProfile.Visible = false;
             DBConnect objDB = new DBConnect();
             storedProceduralCommand command = new storedProceduralCommand();
             GridViewRow row = (GridViewRow)(sender as Control).Parent.Parent;
@@ -220,6 +223,8 @@ namespace Dating_app
                     instructionlbl.Text = "You Have Liked This User Already";
                     nobtn.Visible = false;
                     likebtn.Visible = false;
+                    table_header.Visible = true;
+                    closebtn.Visible = true;
                 }
                 else if(username1 == userthatwasLiked)
                 {
@@ -228,13 +233,18 @@ namespace Dating_app
                     if (userCount > 0)
                     {
                         instructionlbl.Text = "You Already Match With This User";
-                        
+                        nobtn.Visible = false;
+                        likebtn.Visible = false;
+                        table_header.Visible = true;
+                        closebtn.Visible = true;
                     }
                     else
                     {
                         instructionlbl.Text = "This User Liked You Already, So You Have A Match";
                         nobtn.Visible = false;
                         likebtn.Visible = false;
+                        table_header.Visible = true;
+                        closebtn.Visible = true;
                         objDB.DoUpdate(command.updateView(username2, unviewed, username1));
                         objDB.DoUpdate(command.insertLike(username1, username2));
                         objDB.DoUpdate(command.updateView(username1, unviewed, username2));
@@ -246,6 +256,8 @@ namespace Dating_app
                 objDB.DoUpdate(command.insertLike(username1, username2));
                 nobtn.Visible = false;
                 likebtn.Visible = false;
+                table_header.Visible = true;
+                closebtn.Visible = true;
             }
         }
 

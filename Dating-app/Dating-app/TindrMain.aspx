@@ -97,7 +97,7 @@
                     </asp:BoundField>
                     <asp:TemplateField>
                         <ItemTemplate>
-                            <asp:Button ID="profilebtn" runat="server" Text="Button" CommandName="MyCommand" CommandArgument="<%# Container.DataItemIndex %>" EnableViewState="False" OnClick="profilebtn_Click1" />
+                            <asp:Button ID="profilebtn" runat="server" Text="Show Profile" CommandName="MyCommand" CommandArgument="<%# Container.DataItemIndex %>" EnableViewState="False" OnClick="profilebtn_Click1" />
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

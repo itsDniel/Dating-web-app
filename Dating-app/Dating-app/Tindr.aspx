@@ -20,7 +20,7 @@
     <form id="form1" runat="server">
      
            
-           <asp:Panel ID="Panel1" runat="server" Height="511px" style="z-index: 2; left: 44%; top: 20%; position: absolute; height: 511px; width: 280px" BackColor="#CC99FF" ForeColor="White">
+           <asp:Panel ID="Panel1" runat="server" Height="511px" style="z-index: 2; left: 44%; top: 20%; position: absolute; height: 511px; width: 382px" BackColor="#CC99FF" ForeColor="White">
            
             <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ErrorMessage="Username missing!" ControlToValidate="userNametxt" ForeColor="Red" style="z-index: 1; left: 248px; top: 64px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ErrorMessage="Password missing!" ControlToValidate="passWordtxt" ForeColor="#FF3300" style="z-index: 1; left: 249px; top: 102px; position: absolute"></asp:RequiredFieldValidator>
@@ -55,7 +55,7 @@
          <asp:TextBox ID="lNametxt" runat="server" style="z-index: 1; left: 103px; top: 143px; position: absolute"></asp:TextBox>
          <asp:TextBox ID="emailtxt" runat="server" style="z-index: 1; left: 105px; top: 184px; position: absolute"></asp:TextBox>
          <asp:TextBox ID="userCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 230px; position: absolute; right: 239px;"></asp:TextBox>
-         <asp:TextBox ID="passCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 278px; position: absolute"></asp:TextBox>
+         <asp:TextBox ID="passCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 278px; position: absolute; width: 161px;"></asp:TextBox>
          <asp:Label ID="uNameAlertlbl" runat="server" ForeColor="Red" style="z-index: 1; left: 288px; top: 234px; position: absolute" Visible="False">Username is already taken!</asp:Label>
         <asp:Button ID="backbtn" runat="server" OnClick="backbtn_Click" style="z-index: 1; left: 172px; top: 327px; position: absolute; width: 117px; height: 31px;" Text="Go Back" CausesValidation="False" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" />
             

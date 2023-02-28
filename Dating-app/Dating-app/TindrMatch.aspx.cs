@@ -188,10 +188,6 @@ namespace Dating_app
             else
             {
                 objDB.DoUpdate(command.insertDatePlan(currentUser, username, currentUser_Name, username_Name));
-                objDB.DoUpdate(command.deleteDate(currentUser, username));
-                objDB.DoUpdate(command.deleteDate(username, currentUser));
-                objDB.DoUpdate(command.unMatch(currentUser, username));
-                objDB.DoUpdate(command.unMatch(username, currentUser));
             }
         }
 
@@ -287,6 +283,8 @@ namespace Dating_app
             }
             else
             {
+                gvDate.Visible = false;
+                gvMatch.Visible = false;
                 instructionlbl.Text = "You Have No Date Plan";
             }
         }
@@ -303,12 +301,16 @@ namespace Dating_app
 
         protected void cancelbtn_Click(object sender, EventArgs e)
         {
+            string username = Request.Cookies["Username"].Value.ToString();
             DBConnect objDB = new DBConnect();
             storedProceduralCommand command = new storedProceduralCommand();
             string currentUser = Request.Cookies["Username"].Value.ToString();
             objDB.DoUpdate(command.deleteDatePlan(currentUser));
             instructionlbl.Text = "You Cancel The Date You Prick!!";
-
+            objDB.DoUpdate(command.deleteDate(currentUser, username));
+            objDB.DoUpdate(command.deleteDate(username, currentUser));
+            objDB.DoUpdate(command.unMatch(currentUser, username));
+            objDB.DoUpdate(command.unMatch(username, currentUser));
         }
     }
 }
