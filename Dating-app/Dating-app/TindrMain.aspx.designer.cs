@@ -150,13 +150,13 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.Button nobtn;
 
         /// <summary>
-        /// table_header control.
+        /// Panel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTableRow table_header;
+        protected global::System.Web.UI.WebControls.Panel Panel1;
 
         /// <summary>
         /// rprProfile control.
@@ -166,14 +166,5 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater rprProfile;
-
-        /// <summary>
-        /// profileImg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image profileImg;
     }
 }

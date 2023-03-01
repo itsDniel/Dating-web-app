@@ -58,24 +58,7 @@ li a:hover {
     gap: 20px;
 }
 
-.header, .repeater {
-    display: flex;
-    flex-direction: column;
-}
 
-.header table, .repeater table {
-        width: 27%;
-        border-collapse: collapse;
-}
-
-.header th, .repeater td {
-        padding: 10px;
-}
-
-#table_header {
-    display: flex;
-    flex-direction: column;
-}
 
 #table_body {
     display: flex;

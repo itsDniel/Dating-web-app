@@ -20,7 +20,6 @@ namespace Dating_app
             if(Request.Cookies["Username"] != null)
             {
                 string status = "Unview";
-                table_header.Visible = false;
                 Time now = new Time();
                 string username = Request.Cookies["Username"].Value.ToString();
                 storedProceduralCommand insert = new storedProceduralCommand();
@@ -151,19 +150,15 @@ namespace Dating_app
             closebtn.Visible = false;
             nobtn.Visible = true;
             likebtn.Visible = true;
-            table_header.Visible = false;
             rprProfile.Visible = false;
             DBConnect objDB = new DBConnect();
             storedProceduralCommand command = new storedProceduralCommand();
             GridViewRow row = (GridViewRow)(sender as Control).Parent.Parent;
             int rowIndex = row.RowIndex;
             string username = gvCity.DataKeys[rowIndex].Value.ToString();
-            table_header.Visible = true;
             rprProfile.Visible = true;
-            profileImg.Visible = true;
             rprProfile.DataSource = objDB.GetDataSet(command.getProfile(username));
             rprProfile.DataBind();
-            profileImg.ImageUrl = objDB.GetDataSet(command.getProfile(username)).Tables[0].Rows[0]["photo"].ToString();
             usernamePlaceholder.Text = username;
             namePlaceholder.Text = objDB.GetDataSet(command.getProfile(username)).Tables[0].Rows[0]["name"].ToString();
             
@@ -173,11 +168,11 @@ namespace Dating_app
         protected void nobtn_Click(object sender, EventArgs e)
         {
 
-            table_header.Visible = false;
+
             nobtn.Visible = false;
             likebtn.Visible = false;
             rprProfile.Visible = false;
-            profileImg.Visible = false;
+
             
 
         }
@@ -221,10 +216,7 @@ namespace Dating_app
                 if (username1 == userthatLike) 
                 { 
                     instructionlbl.Text = "You Have Liked This User Already";
-                    nobtn.Visible = false;
-                    likebtn.Visible = false;
-                    table_header.Visible = true;
-                    closebtn.Visible = true;
+
                 }
                 else if(username1 == userthatwasLiked)
                 {
@@ -233,18 +225,12 @@ namespace Dating_app
                     if (userCount > 0)
                     {
                         instructionlbl.Text = "You Already Match With This User";
-                        nobtn.Visible = false;
-                        likebtn.Visible = false;
-                        table_header.Visible = true;
-                        closebtn.Visible = true;
+
                     }
                     else
                     {
                         instructionlbl.Text = "This User Liked You Already, So You Have A Match";
-                        nobtn.Visible = false;
-                        likebtn.Visible = false;
-                        table_header.Visible = true;
-                        closebtn.Visible = true;
+
                         objDB.DoUpdate(command.updateView(username2, unviewed, username1));
                         objDB.DoUpdate(command.insertLike(username1, username2));
                         objDB.DoUpdate(command.updateView(username1, unviewed, username2));
@@ -254,20 +240,16 @@ namespace Dating_app
             else
             {
                 objDB.DoUpdate(command.insertLike(username1, username2));
-                nobtn.Visible = false;
-                likebtn.Visible = false;
-                table_header.Visible = true;
-                closebtn.Visible = true;
+                
             }
         }
 
         protected void closebtn_Click(object sender, EventArgs e)
         {
-            table_header.Visible = false;
+
             nobtn.Visible = false;
             likebtn.Visible = false;
             rprProfile.Visible = false;
-            profileImg.Visible = false;
             closebtn.Visible = false;
             instructionlbl.Text = "Let's Look For People That Have Something In Common With You";
         }

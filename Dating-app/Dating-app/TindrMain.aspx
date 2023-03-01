@@ -41,7 +41,7 @@
             </ul>
         </nav>
     </header>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
     <form id="form1" runat="server">
 
 
@@ -112,75 +112,70 @@
                 <SortedDescendingHeaderStyle BackColor="#3E3277" />
             </asp:GridView>
         
-            <asp:Button ID="likebtn" runat="server" style="z-index: 1; left: 1178px; top: 864px; position: absolute; height: 46px; width: 91px" Text="Like" Visible="False" OnClick="likebtn_Click" />
+            <asp:Button ID="likebtn" runat="server" CssClass="hidden" style="z-index: 1; left: 1178px; top: 864px; position: absolute; height: 46px; width: 91px" Text="Like" Visible="False" OnClick="likebtn_Click" />
             <asp:Label ID="namePlaceholder" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="usernamePlaceholder" runat="server" Text="Label" Visible="False"></asp:Label>
-            <asp:Button ID="closebtn" runat="server" Height="39px" OnClick="closebtn_Click" style="z-index: 1; left: 1106px; top: 871px; position: absolute; right: 641px;" Text="Close" Visible="False" Width="86px" />
-            <asp:Button ID="nobtn" runat="server" OnClick="nobtn_Click" style="z-index: 1; left: 1038px; top: 866px; position: absolute; height: 44px; width: 88px" Text="Nah" Visible="False" />
+            <asp:Button ID="closebtn" runat="server" CssClass="hidden" Height="39px" OnClick="closebtn_Click" style="z-index: 1; left: 1106px; top: 871px; position: absolute; right: 641px;" Text="Close" Visible="False" Width="86px" />
+            <asp:Button ID="nobtn" runat="server" CssClass="hidden" OnClick="nobtn_Click" style="z-index: 1; left: 1038px; top: 866px; position: absolute; height: 44px; width: 88px" Text="Nah" Visible="False" />
             <div class="container">
                 <div class="header">
-            <table style="z-index: 1; left: 1029px; top: 401px; position: absolute; height: 165px; width: 754px" id="profileT">
-            <tr runat="server" id="table_header">
-                <th>Name</th>
-                <th class="auto-style3">Age</th>
-                <th>Birthday</th>
-                <th>Occupation</th>
-                <th class="auto-style4">Height</th>
-                <th>Like</th>
-                <th>Dislike</th>
-                <th class="auto-style2">Goal</th>
-                <th>Commitment</th>
-                <th>Description</th>
-            </tr>
-                </table>
+
                     </div>
-                <div class="repeater">
-                    <table style="z-index: 1; left: 1140px; top: 401px; position: absolute; height: 195px; bottom: 327px">
-            <asp:Repeater ID="rprProfile" runat="server" Visible="false">
-                <ItemTemplate>
+                
+                
+                        
+                <asp:Panel ID="Panel1" runat="server" style="z-index: 1; left: 945px; top: 298px; position: absolute; height: 303px; width: 1431px">
+                    <asp:Repeater ID="rprProfile" runat="server" Visible="false">
+                        <ItemTemplate>
+                            <div class="card" style="width: 18rem;">
+                                
+                                <asp:Image ID="profileImg" runat="server" ImageUrl='<%# Eval("photo") %>' />
+                                <div class="card-body">
+                                    <h1 class="card-title">
+                                        <asp:Label ID="lblName" runat="server" Text='<%# "Name: " + DataBinder.Eval(Container.DataItem, "name") %>'></asp:Label>
+                                    </h1>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblAge" runat="server" Text='<%# "Age: " + DataBinder.Eval(Container.DataItem, "age") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblBirth" runat="server" Text='<%# "Birthday: " + DataBinder.Eval(Container.DataItem, "birthday") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblOccu" runat="server" Text='<%# "Occupation: " + DataBinder.Eval(Container.DataItem, "occupation") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblHeight" runat="server" Text='<%# "Height: " + DataBinder.Eval(Container.DataItem, "height") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblLike" runat="server" Text='<%# "Favorite: " + DataBinder.Eval(Container.DataItem, "favorite") %>'></asp:Label>
+                                        
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblCommit" runat="server" Text='<%# "Commitment Type: " + DataBinder.Eval(Container.DataItem, "commitment") %>'></asp:Label>
+                                        
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblDesc" runat="server" Text='<%# "Description: " + DataBinder.Eval(Container.DataItem, "description") %>'></asp:Label>
+                                    </p>
+                                    <a href="#" class="btn btn-primary " onclick="document.getElementById('<%= nobtn.ClientID %>').click(); return false;">Nah</a>
+                                    <a href="#" class="btn btn-primary" onclick="document.getElementById('<%= likebtn.ClientID %>').click(); return false;">Like</a>
+                                </div>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                     
-                    <tr id="table_body">
-                        <td>
-                            <asp:Label ID="lblName" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "name") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblAge" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "age") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblBirth" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "birthday") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblOccu" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "occupation") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblHeight" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "height") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblLike" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "favorite") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblDislike" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "dislike") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblGoal" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "goal") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblCommit" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "commitment") %>'></asp:Label>
-                        </td>
-                        <td>
-                            <asp:Label ID="lblDesc" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "description") %>'></asp:Label>
-                        </td>
-                    </tr>
 
-                </ItemTemplate>
-            </asp:Repeater>
-                        </table>
+                    
+                </asp:Panel>
+
              </div>
-            </div>
+            
 
 
-            <asp:Image ID="profileImg" runat="server" style="z-index: 1; left: 1086px; top: 181px; position: absolute; height: 193px; width: 186px;" Visible="False" />
+
+            
         </div>
     </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
