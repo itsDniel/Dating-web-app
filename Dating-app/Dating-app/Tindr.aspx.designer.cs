@@ -15,6 +15,24 @@ namespace Dating_app
     {
 
         /// <summary>
+        /// welcomelbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label welcomelbl;
+
+        /// <summary>
+        /// introDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl introDiv;
+
+        /// <summary>
         /// form1 control.
         /// </summary>
         /// <remarks>
@@ -24,13 +42,13 @@ namespace Dating_app
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Panel1 control.
+        /// loginTest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Label loginTest;
 
         /// <summary>
         /// usernameValidator control.
@@ -51,31 +69,13 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.RequiredFieldValidator passwordValidator;
 
         /// <summary>
-        /// accountBtn control.
+        /// usernamelbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button accountBtn;
-
-        /// <summary>
-        /// userNamelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label userNamelbl;
-
-        /// <summary>
-        /// passWordlbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passWordlbl;
+        protected global::System.Web.UI.WebControls.Label usernamelbl;
 
         /// <summary>
         /// userNametxt control.
@@ -85,6 +85,15 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox userNametxt;
+
+        /// <summary>
+        /// passwordlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label passwordlbl;
 
         /// <summary>
         /// passWordtxt control.
@@ -105,13 +114,13 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.Button loginBtn;
 
         /// <summary>
-        /// loginTest control.
+        /// accountBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label loginTest;
+        protected global::System.Web.UI.WebControls.Button accountBtn;
 
         /// <summary>
         /// accountForm control.
@@ -121,15 +130,6 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm accountForm;
-
-        /// <summary>
-        /// Panel2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
 
         /// <summary>
         /// Label1 control.

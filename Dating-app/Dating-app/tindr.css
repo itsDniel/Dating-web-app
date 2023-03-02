@@ -1,10 +1,11 @@
 ﻿body {
-    background-image: url(http://news.wovns.com/wp-content/uploads/2016/07/Screen-Shot-2016-07-11-at-2.23.15-PM.png);
-    background-size: cover;
+    background-image: linear-gradient(to right, #ef709b, #fa9372) !important;
+    height: 100vh;
+    font-family: 'Century Gothic';
 }
 
 #nav {
-    background-color: mediumpurple;
+    background-image: linear-gradient(to right, #ef709b, #fa9372) !important;
     padding: 5px;
     text-align: right;
     height: 10%;
@@ -77,4 +78,111 @@ li a:hover {
     justify-content: center;
     align-items: center;
     min-height: 30%;
+}
+
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    left: 45%;
+    top: 28%;
+    background-color: white !important;
+    width: 13%;
+    position: absolute;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.btn {
+    border-radius: 25px;
+    background: linear-gradient(to right, #ef709b, #fa9372) !important;
+    color: white !important;
+}
+
+
+header1{
+    position: relative;
+    left: 0;
+    top: 0;
+    height: 80px;
+}
+
+header1 h4{
+    position: absolute;
+    left: 10%;
+    bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.intro{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    transition: 1s;
+}
+
+.logo-header{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #ffffff;
+}
+
+.logo{
+    position: relative;
+    display: inline-block;
+    bottom: -20px;
+    opacity: 0;
+
+}
+
+.logo.active{
+    bottom: 0;
+    opacity: 1;
+    transition: ease-in-out 0.5s;
+}
+
+.logo.fade{
+    bottom: 150px;
+    opacity: 0;
+    transition: ease-in-out 0.5s;
+}
+
+.intro.stop{
+    opacity: 0;
+}
+
+.account {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    left: 40%;
+    top: 28%;
+    background-color: white !important;
+    width: 25%;
+    position: absolute;
+    justify-content: center;
+    border-radius: 25px;
+    padding: 20px;
+    height: 30%;
+}
+
+.lblLogin {
+    align-items: center;
+    display: flex;
+    left: 37%;
+    top: 10%;
+    position: absolute;
+    color: white;
+    font-size: 3.5rem;
+    font-family: 'Century Gothic';
 }

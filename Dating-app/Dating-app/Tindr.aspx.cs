@@ -8,6 +8,7 @@ using System.Data;
 using Utilities;
 using System.Data.SqlClient;
 using DatingAppLibrary;
+using System.Web.UI.HtmlControls;
 
 namespace Dating_app
 {
@@ -17,7 +18,46 @@ namespace Dating_app
         {
             if (!IsPostBack)
             {
+                ScriptManager.RegisterStartupScript(this, GetType(), "logo-animation", @"
+            let intro = document.querySelector('.intro');
+            let logo = document.querySelector('.logo-header');
+            let logoSpan = document.querySelectorAll('.logo');
+
+            function animateLogo() {
+              setTimeout(() => {
+                  logoSpan.forEach((span, idx) => {
+                      setTimeout(() => {
+                          span.classList.add('active');
+                      }, (idx + 1) * 400)
+                  });
+
+                  setTimeout(() => {
+                      logoSpan.forEach((span, idx) => {
+                          setTimeout(() => {
+                              span.classList.remove('active');
+                              span.classList.add('fade');
+
+                          }, (idx + 1) * 50)
+                      })
+                  }, 2000);
+
+                  setTimeout(() => {
+                      intro.style.top = '-100vh';
+                  }, 2300);
+                    
+                  
+              });
+            }
+
+            window.addEventListener('DOMContentLoaded', animateLogo);
+        ", true);
+                
                 accountForm.Visible = false;
+
+            }
+            else
+            {
+                introDiv.Visible = false;
             }
             
         }
@@ -28,8 +68,8 @@ namespace Dating_app
             {
                 accountForm.Visible = true;
                 form1.Visible = false;
-                
             }
+            
         }
 
         protected void createAccountbtn_Click(object sender, EventArgs e)
@@ -64,13 +104,29 @@ namespace Dating_app
         {
             String username = userNametxt.Text;
             String password = passWordtxt.Text;
-            DBConnect objDB = new DBConnect();
+            String cookieName = " ";
+            int userCount = 0;
+            /*DBConnect objDB = new DBConnect();
             String sql = "SELECT COUNT(*) FROM Login WHERE username = '" + username + "' AND password = '" + password + "'";
             SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
             SqlCommand retrieve = new SqlCommand(sql);
             int userCount = (int)objDB.ExecuteScalarFunction(retrieve);
-            objDB.CloseConnection();
-            String cookieName = objDB.GetDataSet(name).Tables[0].Rows[0]["fname"].ToString();
+            objDB.CloseConnection();*/
+            try
+            {
+                DBConnect objDB = new DBConnect();
+                String sql = "SELECT COUNT(*) FROM Login WHERE username = '" + username + "' AND password = '" + password + "'";
+                SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
+                SqlCommand retrieve = new SqlCommand(sql);
+                userCount = (int)objDB.ExecuteScalarFunction(retrieve);
+                cookieName = objDB.GetDataSet(name).Tables[0].Rows[0]["fname"].ToString();
+                objDB.CloseConnection();
+            }
+            catch(Exception ex)
+            {
+                loginTest.Text = "You Must Enter Your Credential";
+                return;
+            }
             if(userCount > 0)
             {
                 HttpCookie uname = new HttpCookie("Username");
@@ -80,6 +136,10 @@ namespace Dating_app
                 Response.Cookies.Add(uname);
                 Response.Cookies.Add(cName);
                 Response.Redirect("TindrMain.aspx");
+            }
+            else if(string.IsNullOrEmpty(userNametxt.Text) || string.IsNullOrEmpty(passWordtxt.Text))
+            {
+                loginTest.Text = "You Must Enter Your Credential";
             }
             else
             {

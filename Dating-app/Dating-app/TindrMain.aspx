@@ -124,7 +124,7 @@
                 
                 
                         
-                <asp:Panel ID="Panel1" runat="server" style="z-index: 1; left: 945px; top: 298px; position: absolute; height: 303px; width: 1431px">
+                <asp:Panel ID="Panel1" runat="server" style="z-index: 1; left: 1289px; top: 332px; position: absolute; height: 303px; width: 333px">
                     <asp:Repeater ID="rprProfile" runat="server" Visible="false">
                         <ItemTemplate>
                             <div class="card" style="width: 18rem;">

@@ -255,6 +255,7 @@ namespace Dating_app
             timelbl.Visible = true;
             timetxt.Visible = true;
             updatePlanbtn.Visible = true;
+            cancelbtn.Visible = true;
             DBConnect objDB = new DBConnect();
             storedProceduralCommand command = new storedProceduralCommand();
             string currentUser = Request.Cookies["Username"].Value.ToString();
@@ -285,6 +286,14 @@ namespace Dating_app
             {
                 gvDate.Visible = false;
                 gvMatch.Visible = false;
+                locationlbl.Visible = false;
+                timelbl.Visible = false;
+                descriptionlbl.Visible = false;
+                locationtxt.Visible = false;
+                timetxt.Visible = false;
+                descriptiontxt.Visible = false;
+                updatePlanbtn.Visible = false;
+                cancelbtn.Visible = false;
                 instructionlbl.Text = "You Have No Date Plan";
             }
         }
