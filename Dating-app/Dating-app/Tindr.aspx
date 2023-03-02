@@ -34,13 +34,13 @@
     <form id="form1" runat="server" >
 
            <div class="login">
-           
+            <asp:Label ID="loginlbl" runat="server" Text="Login" CssClass="lbl1" Font-Bold="True" Font-Names="Arial" Font-Size="XX-Large"></asp:Label>
             <asp:Label ID="loginTest" runat="server" Font-Size="Large" ForeColor="Red"></asp:Label>
             <asp:RequiredFieldValidator ID="usernameValidator" runat="server" ErrorMessage="Username missing!" ControlToValidate="userNametxt" ForeColor="Red" ValidationGroup="login"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="passwordValidator" runat="server" ErrorMessage="Password missing!" ControlToValidate="passWordtxt" ForeColor="#FF3300" ValidationGroup="login"></asp:RequiredFieldValidator>
-            <asp:Label ID="usernamelbl" runat="server" Text="Username:"></asp:Label>
+            <asp:Label ID="usernamelbl" runat="server" Text="Username"></asp:Label>
             <asp:TextBox ID="userNametxt" runat="server" BackColor="White" ValidationGroup="login"></asp:TextBox>
-            <asp:Label ID="passwordlbl" runat="server" Text="Password:"></asp:Label>
+            <asp:Label ID="passwordlbl" runat="server" Text="Password"></asp:Label>
             <asp:TextBox ID="passWordtxt" TextMode="Password" runat="server" ValidationGroup="login" ></asp:TextBox>
             <asp:Button ID="loginBtn" runat="server" CssClass="btn" Text="Login" OnClick="loginBtn_Click" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" ValidationGroup="login" />
             <asp:Button ID="accountBtn" runat="server" CssClass ="btn" Text="Create Acount" CausesValidation="False" OnClick="accountBtn_Click" ValidationGroup="login"/>
@@ -72,7 +72,7 @@
          <asp:TextBox ID="userCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 230px; position: absolute; right: 239px;"></asp:TextBox>
          <asp:TextBox ID="passCreationtxt" runat="server" style="z-index: 1; left: 105px; top: 278px; position: absolute; width: 161px;"></asp:TextBox>
          <asp:Label ID="uNameAlertlbl" runat="server" ForeColor="Red" style="z-index: 1; left: 288px; top: 234px; position: absolute" Visible="False">Username is already taken!</asp:Label>
-        <asp:Button ID="backbtn" runat="server" CssClass="btn" OnClick="backbtn_Click" style="z-index: 1; left: 172px; top: 327px; position: absolute; width: 117px; height: 31px;" Text="Go Back" CausesValidation="False" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" />
+        <asp:Button ID="backbtn" runat="server" CssClass="btn" OnClick="backbtn_Click" style="z-index: 1; left: 172px; top: 327px; position: absolute; width: 138px; height: 37px;" Text="Go Back" CausesValidation="False" BackColor="#9900CC" BorderColor="#9900CC" ForeColor="White" />
             
     
         </div>
