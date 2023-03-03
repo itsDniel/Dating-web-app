@@ -178,10 +178,10 @@ header1 h4{
 
 .lblLogin {
     align-items: center;
+    justify-content: center;
+    text-align: center;
     display: flex;
-    left: 38%;
-    top: 10%;
-    position: relative;
+    margin-top: 2%;
     color: white;
     font-size: 3.5rem;
     font-family: 'Century Gothic';
