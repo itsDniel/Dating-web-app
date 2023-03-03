@@ -24,7 +24,7 @@
 </head>
 <body>
     <div class="lblLogin">
-    <asp:Label ID="welcomelbl" runat="server" Text="Where Your Soulmate Await" ForeColor="White"></asp:Label>
+    <asp:Label ID="welcomelbl" runat="server" Text="Where True Love Await" ForeColor="White"></asp:Label>
      </div>
     <div class="intro" id="introDiv" runat="server">
         <h1 class="logo-header">
