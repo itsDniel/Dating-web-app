@@ -150,51 +150,6 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// fnamelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label fnamelbl;
-
-        /// <summary>
-        /// lnamelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lnamelbl;
-
-        /// <summary>
-        /// emaillbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emaillbl;
-
-        /// <summary>
-        /// useramelbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label useramelbl;
-
-        /// <summary>
-        /// passcreationlbl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label passcreationlbl;
-
-        /// <summary>
         /// fNameValidator control.
         /// </summary>
         /// <remarks>
@@ -240,13 +195,13 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.RequiredFieldValidator userCreationValidator;
 
         /// <summary>
-        /// createAccountbtn control.
+        /// fnamelbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button createAccountbtn;
+        protected global::System.Web.UI.WebControls.Label fnamelbl;
 
         /// <summary>
         /// fNametxt control.
@@ -258,6 +213,15 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.TextBox fNametxt;
 
         /// <summary>
+        /// lnamelbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lnamelbl;
+
+        /// <summary>
         /// lNametxt control.
         /// </summary>
         /// <remarks>
@@ -265,6 +229,15 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox lNametxt;
+
+        /// <summary>
+        /// emaillbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label emaillbl;
 
         /// <summary>
         /// emailtxt control.
@@ -276,6 +249,15 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.TextBox emailtxt;
 
         /// <summary>
+        /// usercreationlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label usercreationlbl;
+
+        /// <summary>
         /// userCreationtxt control.
         /// </summary>
         /// <remarks>
@@ -283,6 +265,15 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox userCreationtxt;
+
+        /// <summary>
+        /// passcreationlbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label passcreationlbl;
 
         /// <summary>
         /// passCreationtxt control.
@@ -301,6 +292,15 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label uNameAlertlbl;
+
+        /// <summary>
+        /// createAccountbtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button createAccountbtn;
 
         /// <summary>
         /// backbtn control.

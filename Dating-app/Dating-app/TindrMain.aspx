@@ -30,7 +30,7 @@
         }
     </style>
 </head>
-<body>
+<body class="main">
             <header>
         <nav id="nav">
             <ul>
@@ -46,20 +46,22 @@
 
 
 
-        <div>
+
             <asp:Button ID="matchbtn" runat="server" CssClass="hidden" CausesValidation="False" OnClick="matchbtn_Click" Text="Button" />
             <asp:Button ID="logoutbtn" runat="server" CausesValidation="False" CssClass="hidden" OnClick="logoutbtn_Click" style="z-index: 1; left: 713px; top: 107px; position: absolute; height: 29px;" Text="Button" />
             <asp:Label ID="welcomelbl" runat="server"  Font-Size="X-Large" ForeColor="White" style="z-index: 1; left: 26px; top: 21px; position: absolute; height: 26px;"></asp:Label>
              <asp:Button ID="homebtn" runat="server" CausesValidation="False" CssClass="hidden" OnClick="homebtn_Click" style="z-index: 1; left: 821px; top: 113px; position: absolute; height: 36px; width: 113px;" Text="Button" />
                 <asp:Button ID="profilebtn" runat="server" CausesValidation="False" CssClass="hidden" OnClick="profilebtn_Click" style="z-index: 1; left: 525px; top: 125px; position: absolute; height: 33px;" Text="Button" />
-            <asp:Label ID="instructionlbl" runat="server" Font-Size="X-Large" style="z-index: 1; left: 40px; top: 179px; position: absolute">Hi There Let&#39;s Look For People That Have Something In Common With You </asp:Label>
-            <asp:DropDownList ID="searchddl" runat="server" style="z-index: 1; left: 45px; top: 224px; position: absolute">
+            <div class="mainInstruction">
+            <asp:Label ID="instructionlbl" runat="server" Font-Size="X-Large">Hi There Let&#39;s Look For People That Have Something In Common With You </asp:Label>
+            <asp:DropDownList ID="searchddl" runat="server" >
                 <asp:ListItem Value="0">Same City</asp:ListItem>
                 <asp:ListItem Value="1">Like The Same Thing</asp:ListItem>
                 <asp:ListItem Value="2">Dislike The Same Thing</asp:ListItem>
                 <asp:ListItem Value="3">Same Commitment Type</asp:ListItem>
             </asp:DropDownList>
-            <asp:Button ID="searchbtn" runat="server" OnClick="Button2_Click" style="z-index: 1; left: 44px; top: 265px; position: absolute" Text="Search" />
+            <asp:Button ID="searchbtn" runat="server" CssClass="btn" OnClick="Button2_Click" Text="Search" />
+            </div>
             <asp:GridView ID="gvCity" runat="server" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="username" GridLines="Horizontal" style="z-index: 1; left: 44px; top: 324px; position: absolute; height: 133px; width: 187px" Visible="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">
                 <AlternatingRowStyle BackColor="#F7F7F7" />
                 <Columns>
@@ -174,7 +176,7 @@
 
 
             
-        </div>
+
     </form>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>

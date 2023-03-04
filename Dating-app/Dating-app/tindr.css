@@ -1,5 +1,11 @@
-﻿body {
+﻿.bodyLogin {
     background-image: linear-gradient(to right, #ef709b, #fa9372) !important;
+    height: 100vh;
+    font-family: 'Century Gothic';
+}
+
+.main {
+    background-color: white !important;
     height: 100vh;
     font-family: 'Century Gothic';
 }
@@ -10,10 +16,8 @@
     text-align: right;
     height: 10%;
     z-index: 1;
-    left: 7px;
-    top: 9px;
     position: absolute;
-    width: 99%;
+    width: 100%;
 }
 li a {
     color: #F1FAEE;
@@ -164,16 +168,16 @@ header1 h4{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     gap: 10px;
-    left: 40%;
-    top: 28%;
     background-color: white !important;
-    width: 35%;
-    position: absolute;
+    margin-top: 5%;
+    width: 20%;
     justify-content: center;
     border-radius: 25px;
     padding: 20px;
-    height: 52%;
+    height: 130%;
+    margin-left: 39%;
 }
 
 .lblLogin {
@@ -194,4 +198,21 @@ header1 h4{
     font-size: 2rem;
     
     
+}
+
+.mainInstruction {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    transform: translate(-50%, -50%);
+    padding-top: 3%;
+    width: 20%;
+    gap: 10px;
+    color: black !important;
+    font-family: 'Century Gothic';
 }

@@ -21,7 +21,7 @@
         }
     </style>
 </head>
-<body>
+<body class="main">
         <header>
         <nav id="nav">
             <ul>
@@ -29,6 +29,9 @@
             <li><a href="#" onclick="document.getElementById('<%= profilebtn.ClientID %>').click(); return false;">My Profile</a></li>
             <li><a href="#" onclick="document.getElementById('<%= matchbtn.ClientID %>').click(); return false;">My Match</a></li>
             <li><a href="#" onclick="document.getElementById('<%= logoutbtn.ClientID %>').click(); return false;">Logout</a></li>
+                            </ul>
+        </nav>
+    </header>
     <form id="matchForm" runat="server">
 
         <asp:Button ID="logoutbtn" runat="server" CssClass="hidden" CausesValidation="False" Text="Button" OnClick="logoutbtn_Click" />
@@ -195,9 +198,6 @@
         <asp:RequiredFieldValidator ID="timeValidator" runat="server" ControlToValidate="timetxt" ErrorMessage="Missing Time" ForeColor="Red" style="z-index: 1; top: 269px; position: absolute; left: 1462px"></asp:RequiredFieldValidator>
     </form>
     
-            </ul>
-        </nav>
-    </header>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>

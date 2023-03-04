@@ -25,7 +25,7 @@
 
 
 </head>
-<body>
+<body class="main">
     
     <header>
         <nav id="nav">
