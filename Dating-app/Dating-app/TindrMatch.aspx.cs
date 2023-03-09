@@ -131,6 +131,8 @@ namespace Dating_app
             objDB.CloseConnection();
             int datePlanCheck = (int)objDB.ExecuteScalarFunction(command.checkDatePlan(currentUser));
             objDB.CloseConnection();
+            int checkMatch = (int)objDB.ExecuteScalarFunction(command.checkMatch(targetUser, currentUser));
+            objDB.CloseConnection();
             if (datePlanCheck > 0)
             {
                 instructionlbl.Text = "You Can't Send A Date Request When You Have A Date Plan, Don't Be An Asshole";
@@ -147,7 +149,10 @@ namespace Dating_app
                 {
                     instructionlbl.Text = "This User Sent You A Date Request Please Check Your Date Requests";
                 }
-            }
+            }else if(checkMatch == 0 )
+                {
+                    instructionlbl.Text = "This User Hasn't Like You Yet So You Can't Send A Date Request";
+                }
             else
             {
                 instructionlbl.Text = "You Sent A Date Request To This User";

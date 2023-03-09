@@ -62,71 +62,43 @@
             </asp:DropDownList>
             <asp:Button ID="searchbtn" runat="server" CssClass="btn" OnClick="Button2_Click" Text="Search" />
             </div>
-            <asp:GridView ID="gvCity" runat="server" AutoGenerateColumns="False" CellPadding="3" DataKeyNames="username" GridLines="Horizontal" style="z-index: 1; left: 44px; top: 324px; position: absolute; height: 133px; width: 187px" Visible="False" BackColor="White" BorderColor="#E7E7FF" BorderStyle="None" BorderWidth="1px">
-                <AlternatingRowStyle BackColor="#F7F7F7" />
-                <Columns>
-                    <asp:BoundField DataField="username" HeaderText="username" SortExpression="username" Visible="False" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("photo") %>' style ="max-width: 300px; max-height: 300px;" />
-                        </ItemTemplate>
-                        <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="name" HeaderText="Name" SortExpression="name" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="age" HeaderText="Age" SortExpression="age" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="address" HeaderText="City" SortExpression="address" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" Width="20%" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="favorite" HeaderText="Like" SortExpression="favorite" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="dislike" HeaderText="Dislike" SortExpression="dislike" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="commitment" HeaderText="Commitment Type" SortExpression="commitment" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" >
-                    <HeaderStyle HorizontalAlign="Center" VerticalAlign="Middle" />
-                    </asp:BoundField>
-                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:Button ID="profilebtn" runat="server" Text="Show Profile" CommandName="MyCommand" CommandArgument="<%# Container.DataItemIndex %>" EnableViewState="False" OnClick="profilebtn_Click1" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <FooterStyle BackColor="#B5C7DE" ForeColor="#4A3C8C" />
-                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#F7F7F7" />
-                <PagerStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" HorizontalAlign="Right" />
-                <RowStyle BackColor="#E7E7FF" ForeColor="#4A3C8C" />
-                <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="#F7F7F7" />
-                <SortedAscendingCellStyle BackColor="#F4F4FD" />
-                <SortedAscendingHeaderStyle BackColor="#5A4C9D" />
-                <SortedDescendingCellStyle BackColor="#D8D8F0" />
-                <SortedDescendingHeaderStyle BackColor="#3E3277" />
-            </asp:GridView>
         
-            <asp:Button ID="likebtn" runat="server" CssClass="hidden" style="z-index: 1; left: 1178px; top: 864px; position: absolute; height: 46px; width: 91px" Text="Like" Visible="False" OnClick="likebtn_Click" />
+            <asp:Button ID="likebtn" runat="server" CssClass="hidden" style="z-index: 1; left: 1178px; top: 864px; position: absolute; height: 46px; width: 91px" Text="Like" Visible="True" OnClick="likebtn_Click" />
             <asp:Label ID="namePlaceholder" runat="server" Visible="False"></asp:Label>
             <asp:Label ID="usernamePlaceholder" runat="server" Text="Label" Visible="False"></asp:Label>
-            <asp:Button ID="closebtn" runat="server" CssClass="hidden" Height="39px" OnClick="closebtn_Click" style="z-index: 1; left: 1106px; top: 871px; position: absolute; right: 641px;" Text="Close" Visible="False" Width="86px" />
-            <asp:Button ID="nobtn" runat="server" CssClass="hidden" OnClick="nobtn_Click" style="z-index: 1; left: 1038px; top: 866px; position: absolute; height: 44px; width: 88px" Text="Nah" Visible="False" />
-            <div class="container">
-                <div class="header">
+            <asp:Button ID="closebtn" runat="server" CssClass="hidden" Height="39px" OnClick="closebtn_Click" style="z-index: 1; left: 1106px; top: 871px; position: absolute; right: 641px;" Text="Close" Visible="True" Width="86px" />
+            <asp:Button ID="nobtn" runat="server" CssClass="hidden" OnClick="nobtn_Click" style="z-index: 1; left: 1038px; top: 866px; position: absolute; height: 44px; width: 88px" Text="Nah" Visible="True" />
+            <div class="rprShow">
+                 <asp:Repeater ID="rprDisplay" runat="server" Visible="false" OnItemCommand="rptProducts_ItemCommand">
+                        <ItemTemplate>
+                            <div class="card" style="width: 18rem;">
+                                
+                                <asp:Image ID="profileImg" runat="server" ImageUrl='<%# Eval("photo") %>' />
+                                <div class="card-body">
+                                    <h1 class="card-title">
+                                        <asp:Label ID="lblName" runat="server" Text='<%# "Name: " + DataBinder.Eval(Container.DataItem, "name") %>'></asp:Label>
+                                    </h1>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblAge" runat="server" Text='<%# "Age: " + DataBinder.Eval(Container.DataItem, "age") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblDesc" runat="server" Text='<%# "Description: " + DataBinder.Eval(Container.DataItem, "description") %>'></asp:Label>
+                                    </p>
+                                    <p class="card-text">
+                                        <asp:Label ID="lblUsername" CssClass="hidden" runat="server" Text='<%#DataBinder.Eval(Container.DataItem, "username") %>'></asp:Label>
+                                    </p>
+                                    <asp:Button ID="btnShowprofile" CssClass="oppbtn" Text="Show Profile" runat="server" />
+                                </div>
+                            </div>
+                     </ItemTemplate>
+                    </asp:Repeater>
+            </div>
+        <div class="rprUser">
 
-                    </div>
                 
                 
                         
-                <asp:Panel ID="Panel1" runat="server" style="z-index: 1; left: 1289px; top: 332px; position: absolute; height: 303px; width: 333px">
+                
                     <asp:Repeater ID="rprProfile" runat="server" Visible="false">
                         <ItemTemplate>
                             <div class="card" style="width: 18rem;">
@@ -159,8 +131,8 @@
                                     <p class="card-text">
                                         <asp:Label ID="lblDesc" runat="server" Text='<%# "Description: " + DataBinder.Eval(Container.DataItem, "description") %>'></asp:Label>
                                     </p>
-                                    <a href="#" class="btn btn-primary " onclick="document.getElementById('<%= nobtn.ClientID %>').click(); return false;">Nah</a>
-                                    <a href="#" class="btn btn-primary" onclick="document.getElementById('<%= likebtn.ClientID %>').click(); return false;">Like</a>
+                                    <a href="#" class="oppbtn" onclick="document.getElementById('<%= nobtn.ClientID %>').click(); return false;">Nah</a>
+                                    <a href="#" class="oppbtn" onclick="document.getElementById('<%= likebtn.ClientID %>').click(); return false;">Like</a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -168,7 +140,7 @@
                     
 
                     
-                </asp:Panel>
+                
 
              </div>
             

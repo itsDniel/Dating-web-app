@@ -94,9 +94,6 @@ namespace Dating_app
 
         private void generateGridview(string value)
         {
-            gvCity.Columns[5].Visible = false;
-            gvCity.Columns[6].Visible = false;
-            gvCity.Columns[7].Visible = false;
             string username = Request.Cookies["Username"].Value.ToString();
             DBConnect objDB = new DBConnect();
             storedProceduralCommand insert = new storedProceduralCommand();
@@ -107,31 +104,28 @@ namespace Dating_app
             if (value == "0")
             {
                 instructionlbl.Text = "These Are The Profile That Match Your City";
-                gvCity.Visible = true;
-                gvCity.DataSource = objDB.GetDataSet(insert.getInfo(username, uCity));
-                gvCity.DataBind();
+                rprDisplay.Visible = true;
+                rprDisplay.DataSource = objDB.GetDataSet(insert.getInfo(username, uCity));
+                rprDisplay.DataBind();
             }else if(value == "1")
             {
                 instructionlbl.Text = "These Are The Profile That Like The Same Thing As You";
-                gvCity.Columns[4].Visible = false;
-                gvCity.Columns[5].Visible = true;
-                gvCity.DataSource = objDB.GetDataSet(insert.getLike(username, like));
-                gvCity.DataBind();
+                rprDisplay.Visible = true;
+                rprDisplay.DataSource = objDB.GetDataSet(insert.getLike(username, like));
+                rprDisplay.DataBind();
             }else if(value == "2")
             {
                 instructionlbl.Text = "These Are The Profile That Dislike The Same Thing As You";
-                gvCity.Columns[5].Visible = false;
-                gvCity.Columns[6].Visible = true;
-                gvCity.DataSource = objDB.GetDataSet(insert.getDislike(username, dislike));
-                gvCity.DataBind();
+                rprDisplay.Visible = true;
+                rprDisplay.DataSource = objDB.GetDataSet(insert.getDislike(username, dislike));
+                rprDisplay.DataBind();
             }
             else
             {
                 instructionlbl.Text = "These Are The Profile That Are Looking For The Same Commitment Type As You";
-                gvCity.Columns[6].Visible = false;
-                gvCity.Columns[7].Visible = true;
-                gvCity.DataSource = objDB.GetDataSet(insert.getCommit(username, commit));
-                gvCity.DataBind();
+                rprDisplay.Visible = true;
+                rprDisplay.DataSource = objDB.GetDataSet(insert.getCommit(username, commit));
+                rprDisplay.DataBind();
                 
             }
         }
@@ -143,27 +137,6 @@ namespace Dating_app
             generateGridview(searchddl.SelectedValue);
         }
 
-
-        protected void profilebtn_Click1(object sender, EventArgs e)
-        {
-            instructionlbl.Text = "Let's Look For People That Have Something In Common With You";
-            closebtn.Visible = false;
-            nobtn.Visible = true;
-            likebtn.Visible = true;
-            rprProfile.Visible = false;
-            DBConnect objDB = new DBConnect();
-            storedProceduralCommand command = new storedProceduralCommand();
-            GridViewRow row = (GridViewRow)(sender as Control).Parent.Parent;
-            int rowIndex = row.RowIndex;
-            string username = gvCity.DataKeys[rowIndex].Value.ToString();
-            rprProfile.Visible = true;
-            rprProfile.DataSource = objDB.GetDataSet(command.getProfile(username));
-            rprProfile.DataBind();
-            usernamePlaceholder.Text = username;
-            namePlaceholder.Text = objDB.GetDataSet(command.getProfile(username)).Tables[0].Rows[0]["name"].ToString();
-            
-
-        }
 
         protected void nobtn_Click(object sender, EventArgs e)
         {
@@ -263,6 +236,23 @@ namespace Dating_app
             Response.Cookies.Add(uName);
             Response.Cookies.Add(cName);
             Response.Redirect("TindrMatch.aspx");
+        }
+
+        protected void rptProducts_ItemCommand(Object sender, System.Web.UI.WebControls.RepeaterCommandEventArgs e)
+
+        {
+
+            instructionlbl.Text = "Let's Look For People That Have Something In Common With You";
+            int rowIndex = e.Item.ItemIndex;
+            Label myLabel = (Label)rprDisplay.Items[rowIndex].FindControl("lblUsername");
+            string username = myLabel.Text;
+            usernamePlaceholder.Text = username;
+            DBConnect objDB = new DBConnect();
+            storedProceduralCommand command = new storedProceduralCommand();
+            rprProfile.Visible = true;
+            rprProfile.DataSource = objDB.GetDataSet(command.getProfile(username));
+            rprProfile.DataBind();
+            namePlaceholder.Text = objDB.GetDataSet(command.getProfile(username)).Tables[0].Rows[0]["name"].ToString();
         }
 
     }

@@ -356,5 +356,14 @@ namespace DatingAppLibrary
             return command;
         }
 
+        public SqlCommand checkMatch(string username1, string username2)
+        {
+            SqlCommand command = new SqlCommand("checkMatch");
+            command.Parameters.Add("@username1", SqlDbType.VarChar).Value = username1;
+            command.Parameters.Add("@username2", SqlDbType.VarChar).Value = username2;
+            command.CommandType = CommandType.StoredProcedure;
+            return command;
+        }
+
     }
 }

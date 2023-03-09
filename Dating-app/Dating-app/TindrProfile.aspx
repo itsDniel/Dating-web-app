@@ -108,11 +108,11 @@
             <asp:ListItem></asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="disliketxt" runat="server" style="z-index: 1; left: 599px; top: 404px; position: absolute">
+            <asp:ListItem>Trash</asp:ListItem>
+            <asp:ListItem>Smoking</asp:ListItem>
+            <asp:ListItem>Drug</asp:ListItem>
             <asp:ListItem>Dog</asp:ListItem>
             <asp:ListItem>Cat</asp:ListItem>
-            <asp:ListItem>Football</asp:ListItem>
-            <asp:ListItem>Basketball</asp:ListItem>
-            <asp:ListItem>Baseball</asp:ListItem>
         </asp:DropDownList>
         <asp:Label ID="dislikelbl" runat="server" style="z-index: 1; left: 419px; top: 403px; position: absolute" Text="What do you dislike:"></asp:Label>
         <asp:Label ID="goallbl" runat="server" style="z-index: 1; left: 772px; top: 403px; position: absolute" Text="What is your goal: "></asp:Label>
@@ -124,11 +124,11 @@
         <asp:Label ID="commitmentlbl" runat="server" style="z-index: 1; left: 178px; top: 534px; position: absolute" Text="Please Choose Your Commitment Type: "></asp:Label>
         <asp:DropDownList ID="commitddl" runat="server" style="z-index: 1; left: 435px; top: 534px; position: absolute">
             <asp:ListItem>One Night</asp:ListItem>
-            <asp:ListItem>Sex Friend</asp:ListItem>
+            <asp:ListItem>Marriage</asp:ListItem>
             <asp:ListItem>Dating</asp:ListItem>
             <asp:ListItem>1v1</asp:ListItem>
         </asp:DropDownList>
-                <asp:GridView ID="gvProfile" runat="server" CssClass="grid" AutoGenerateColumns="False" CellPadding="4" GridLines="None" style="z-index: 1; left: 54px; top: 354px; position: absolute; height: 269px; width: 1366px" ForeColor="#333333" BorderColor="Black" BorderStyle="None">
+                <asp:GridView ID="gvProfile" runat="server" CssClass="grid" AutoGenerateColumns="False" CellPadding="4" GridLines="None" style="z-index: 1; left: 54px; top: 354px; position: absolute; height: 269px; width: 1366px" ForeColor="#333333">
                     <AlternatingRowStyle BackColor="White" />
             <Columns>
                 <asp:BoundField DataField="name" HeaderText="Name" />
@@ -146,15 +146,15 @@
                 <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
             </Columns>
                     <EditRowStyle BackColor="#2461BF" />
-            <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
-            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-            <RowStyle BackColor="#EFF3FB" />
-            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-            <SortedAscendingCellStyle BackColor="#F5F7FB" />
-            <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-            <SortedDescendingCellStyle BackColor="#E9EBEF" />
-            <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle CssClass="gvHeader" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle BackColor="Transparent" />
+                    <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                    <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                    <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                    <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         <asp:Image ID="profilePic" runat="server" style="z-index: 1; left: 51px; top: 65px; position: absolute; height: 237px; width: 227px" />
     </form>

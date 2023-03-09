@@ -106,6 +106,12 @@ li a:hover {
     color: white !important;
 }
 
+.oppbtn {
+    border-radius: 25px;
+    background: white!important;
+    color: black !important;
+}
+
 
 header1{
     position: relative;
@@ -231,4 +237,40 @@ header1 h4{
     gap: 10px;
     font-family: 'Century Gothic';
     color: black !important;
+}
+
+.rprShow {
+    top: 35%;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 40%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.card {
+    width: 48%;
+    margin: 0 1%;
+    background: linear-gradient(to right, #ef709b, #fa9372) !important;
+    color: white !important;
+}
+
+.rprUser {
+    top: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    text-align: center;
+    
+}
+
+.gvHeader {
+    background: linear-gradient(to right, #ef709b, #fa9372) !important;
+    color: white !important;
 }

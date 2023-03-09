@@ -96,15 +96,6 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.Button searchbtn;
 
         /// <summary>
-        /// gvCity control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvCity;
-
-        /// <summary>
         /// likebtn control.
         /// </summary>
         /// <remarks>
@@ -150,13 +141,13 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.Button nobtn;
 
         /// <summary>
-        /// Panel1 control.
+        /// rprDisplay control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.Repeater rprDisplay;
 
         /// <summary>
         /// rprProfile control.
