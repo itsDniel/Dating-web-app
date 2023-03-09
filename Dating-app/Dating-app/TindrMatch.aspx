@@ -39,7 +39,7 @@
     
         <asp:Label ID="welcomelbl" runat="server" Font-Size="X-Large" ForeColor="White" style="z-index: 1; left: 20px; top: -102px; position: absolute"></asp:Label>
         <asp:Label ID="instructionlbl" runat="server" Font-Size="X-Large" style="z-index: 1; left: 81px; top: 53px; position: absolute" Text="Welcome To Your Match Page, Here Are Your Matches"></asp:Label>
-        <asp:Button ID="okbtn" runat="server" CausesValidation="False" OnClick="okbtn_Click" style="z-index: 1; left: 82px; top: 102px; position: absolute; height: 24px" Text="Gotcha" Visible="False" />
+        <asp:Button ID="okbtn" CssClass="btn" runat="server" CausesValidation="False" OnClick="okbtn_Click" style="z-index: 1; left: 82px; top: 102px; position: absolute; height: 24px" Text="Gotcha" Visible="False" />
         <asp:GridView ID="gvMatch" runat="server" AutoGenerateColumns="False" DataKeyNames="username" style="z-index: 1; left: 77px; top: 188px; position: absolute; height: 152px; width: 232px" CellPadding="4" ForeColor="#333333" GridLines="None">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -61,12 +61,12 @@
                 <asp:BoundField DataField="description" HeaderText="Description" SortExpression="description" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="datebtn" runat="server" Height="29px" Text="Date Request" CausesValidation="False" OnClick="datebtn_Click" />
+                        <asp:Button ID="datebtn" CssClass="btn" runat="server" Height="29px" Text="Date Request" CausesValidation="False" OnClick="datebtn_Click" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="unMatchbtn" runat="server" CausesValidation="False" OnClick="unMatchbtn_Click" Text="Unmatch" />
+                        <asp:Button ID="unMatchbtn" CssClass="btn" runat="server" CausesValidation="False" OnClick="unMatchbtn_Click" Text="Unmatch" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -106,12 +106,12 @@
                 <asp:BoundField DataField="Description" HeaderText="Commitment" SortExpression="Description" />
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="acceptbtn" runat="server" CausesValidation="False" OnClick="acceptbtn_Click" Text="Accept" />
+                        <asp:Button ID="acceptbtn" CssClass="btn" runat="server" CausesValidation="False" OnClick="acceptbtn_Click" Text="Accept" />
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <asp:Button ID="rejectbtn" runat="server" CausesValidation="False" OnClick="rejectbtn_Click" Text="Reject" />
+                        <asp:Button ID="rejectbtn" runat="server" CssClass="btn" CausesValidation="False" OnClick="rejectbtn_Click" Text="Reject" />
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -160,7 +160,7 @@
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
         <asp:Label ID="profilelbl" runat="server" Font-Size="X-Large" style="z-index: 1; left: 78px; top: 483px; position: absolute" Text="Here's The Full Profile Of The Person You Are Going On A Date With" Visible="False"></asp:Label>
-        <asp:Button ID="datePlanbtn" runat="server" CausesValidation="False" OnClick="datePlanbtn_Click" style="z-index: 1; left: 516px; top: 141px; position: absolute" Text="Check Your Date Plan" />
+        <asp:Button ID="datePlanbtn" runat="server" CssClass="btn" CausesValidation="False" OnClick="datePlanbtn_Click" style="z-index: 1; left: 516px; top: 141px; position: absolute" Text="Check Your Date Plan" />
         <asp:GridView ID="gvPlan" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="username1,username2" ForeColor="#333333" GridLines="None" style="z-index: 1; left: 82px; top: 189px; position: absolute; height: 133px; width: 187px" Visible="False">
             <AlternatingRowStyle BackColor="White" />
             <Columns>
@@ -185,14 +185,14 @@
         </asp:GridView>
         <asp:Label ID="locationlbl" runat="server" style="z-index: 1; left: 1290px; top: 153px; position: absolute" Text="Date Location" Visible="False"></asp:Label>
         <asp:TextBox ID="locationtxt" runat="server" style="z-index: 1; left: 1266px; top: 186px; position: absolute" Visible="False"></asp:TextBox>
-        <asp:Button ID="checkDate" runat="server" CausesValidation="False" OnClick="checkDate_Click" style="z-index: 1; left: 77px; top: 143px; position: absolute" Text="Check Your Date Request" />
-        <asp:Button ID="checkMatchbtn" runat="server" CausesValidation="False" OnClick="checkMatchbtn_Click" style="z-index: 1; left: 323px; top: 142px; position: absolute" Text="Check Your Match" />
+        <asp:Button ID="checkDate" runat="server" CssClass="btn" CausesValidation="False" OnClick="checkDate_Click" style="z-index: 1; left: 77px; top: 143px; position: absolute" Text="Check Your Date Request" />
+        <asp:Button ID="checkMatchbtn" runat="server" CssClass="btn" CausesValidation="False" OnClick="checkMatchbtn_Click" style="z-index: 1; left: 323px; top: 142px; position: absolute" Text="Check Your Match" />
         <asp:Label ID="timelbl" runat="server" style="z-index: 1; left: 1305px; top: 233px; position: absolute" Text="Date Time" Visible="False"></asp:Label>
         <asp:TextBox ID="timetxt" runat="server" style="z-index: 1; left: 1261px; top: 267px; position: absolute; right: 343px" Visible="False"></asp:TextBox>
         <asp:Label ID="descriptionlbl" runat="server" style="z-index: 1; left: 1279px; top: 321px; position: absolute" Text="Date Description" Visible="False"></asp:Label>
         <asp:TextBox ID="descriptiontxt" runat="server" style="z-index: 1; left: 1263px; top: 363px; position: absolute" Visible="False"></asp:TextBox>
-        <asp:Button ID="updatePlanbtn" runat="server" OnClick="updatePlanbtn_Click" style="z-index: 1; left: 1195px; top: 436px; position: absolute" Text="Update Plan" Visible="False" />
-        <asp:Button ID="cancelbtn" runat="server" OnClick="cancelbtn_Click" style="z-index: 1; left: 1375px; top: 437px; position: absolute" Text="Cancel Date" Visible="False" CausesValidation="False" />
+        <asp:Button ID="updatePlanbtn" runat="server" CssClass="btn" OnClick="updatePlanbtn_Click" style="z-index: 1; left: 1195px; top: 436px; position: absolute" Text="Update Plan" Visible="False" />
+        <asp:Button ID="cancelbtn" runat="server" CssClass="btn" OnClick="cancelbtn_Click" style="z-index: 1; left: 1375px; top: 437px; position: absolute" Text="Cancel Date" Visible="False" CausesValidation="False" />
         <asp:RequiredFieldValidator ID="locationValidator" runat="server" ControlToValidate="locationtxt" ErrorMessage="Missing Location" ForeColor="Red" style="z-index: 1; left: 1462px; top: 188px; position: absolute"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="descriptionValidator" runat="server" ControlToValidate="descriptiontxt" ErrorMessage="Missing Description" ForeColor="Red" style="z-index: 1; left: 1449px; top: 360px; position: absolute"></asp:RequiredFieldValidator>
         <asp:RequiredFieldValidator ID="timeValidator" runat="server" ControlToValidate="timetxt" ErrorMessage="Missing Time" ForeColor="Red" style="z-index: 1; top: 269px; position: absolute; left: 1462px"></asp:RequiredFieldValidator>

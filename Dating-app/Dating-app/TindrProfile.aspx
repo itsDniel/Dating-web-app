@@ -55,9 +55,11 @@
             <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -126px; position: absolute; left: 6px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
             
         </div>
-
-            <asp:Label ID="greetinglbl" runat="server" Font-Bold="True" Font-Size="XX-Large" style="z-index: 1; top: 5px; position: absolute; left: 438px" Text="Hi There, Let's Get Your Profile Set Up"></asp:Label>
-
+        <div class="profileIntro">
+            <asp:Label ID="greetinglbl" runat="server" Font-Bold="True" Font-Size="XX-Large" Text="Hi There, Let's Get Your Profile Set Up"></asp:Label>
+        <asp:Button ID="deletebtn" runat="server" CssClass="btn" Text="Delete And Create New" Font-Size="Large" OnClick="deletebtn_Click" />
+        <asp:Button ID="modifybtn" runat="server" CssClass="btn" Font-Size="Large" OnClick="modifybtn_Click" Text="Modify" />
+        </div>
         <p>
             <asp:RequiredFieldValidator ID="occupationValidator" runat="server" ControlToValidate="occupationtxt" ErrorMessage="You Must Enter Your Occupation!" ForeColor="Red" style="z-index: 1; left: 1289px; top: 146px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="emailValidator" runat="server" ControlToValidate="emailtxt" ErrorMessage="You Must Enter Your Email!" ForeColor="Red" style="z-index: 1; left: 159px; top: 250px; position: absolute"></asp:RequiredFieldValidator>
@@ -67,7 +69,7 @@
             <asp:RequiredFieldValidator ID="goalValidator" runat="server" ControlToValidate="goaltxt" ErrorMessage="You Must Enter Your Goal" ForeColor="Red" style="z-index: 1; left: 906px; top: 374px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="descriptionValidator" runat="server" ControlToValidate="descriptiontxt" ErrorMessage="You Must Enter Your Description" ForeColor="Red" style="z-index: 1; left: 1294px; top: 371px; position: absolute"></asp:RequiredFieldValidator>
             <asp:RequiredFieldValidator ID="picValidator" runat="server" ControlToValidate="pictxt" ErrorMessage="You Must Enter Your Photo URL" ForeColor="Red" style="z-index: 1; left: 1030px; top: 505px; position: absolute"></asp:RequiredFieldValidator>
-            <asp:Button ID="submitbtn" runat="server" OnClick="submitbtn_Click" style="z-index: 1; left: 814px; top: 763px; position: absolute; height: 43px; width: 145px" Text="Submit" />
+            <asp:Button ID="submitbtn" runat="server" CssClass="btn" OnClick="submitbtn_Click" style="z-index: 1; left: 814px; top: 763px; position: absolute; height: 43px; width: 145px" Text="Submit" />
             <asp:RequiredFieldValidator ID="birthdayValidator" runat="server" ControlToValidate="birthdaytxt" ErrorMessage="You Must Enter Your Birthday" ForeColor="Red" style="z-index: 1; left: 543px; top: 148px; position: absolute"></asp:RequiredFieldValidator>
             
         </p>
@@ -154,8 +156,6 @@
             <SortedDescendingCellStyle BackColor="#E9EBEF" />
             <SortedDescendingHeaderStyle BackColor="#4870BE" />
         </asp:GridView>
-                <asp:Button ID="deletebtn" runat="server" style="z-index: 1; left: 729px; top: 142px; position: absolute" Text="Delete And Create New" Font-Size="Large" OnClick="deletebtn_Click" />
-        <asp:Button ID="modifybtn" runat="server" Font-Size="Large" OnClick="modifybtn_Click" style="z-index: 1; left: 818px; top: 68px; position: absolute" Text="Modify" />
         <asp:Image ID="profilePic" runat="server" style="z-index: 1; left: 51px; top: 65px; position: absolute; height: 237px; width: 227px" />
     </form>
 

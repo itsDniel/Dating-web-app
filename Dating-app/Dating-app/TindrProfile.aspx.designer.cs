@@ -69,6 +69,24 @@ namespace Dating_app
         protected global::System.Web.UI.WebControls.Label greetinglbl;
 
         /// <summary>
+        /// deletebtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button deletebtn;
+
+        /// <summary>
+        /// modifybtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button modifybtn;
+
+        /// <summary>
         /// occupationValidator control.
         /// </summary>
         /// <remarks>
@@ -454,24 +472,6 @@ namespace Dating_app
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvProfile;
-
-        /// <summary>
-        /// deletebtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button deletebtn;
-
-        /// <summary>
-        /// modifybtn control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button modifybtn;
 
         /// <summary>
         /// profilePic control.
