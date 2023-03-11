@@ -52,7 +52,7 @@
 
         <asp:Button ID="homebtn" runat="server" CausesValidation="False" CssClass="hidden" OnClick="homebtn_Click" Text="Button" style="z-index: 1; left: 1407px; top: 66px; position: absolute" />
         <div>
-            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -126px; position: absolute; left: 6px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
+            <asp:Label ID="welcomelbl" runat="server" style="z-index: 1; top: -150px; position: absolute; left: 8px;" Font-Size="X-Large" ForeColor="White"></asp:Label>
             
         </div>
         <div class="profileIntro">

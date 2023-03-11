@@ -106,19 +106,13 @@ namespace Dating_app
             String password = passWordtxt.Text;
             String cookieName = " ";
             int userCount = 0;
-            /*DBConnect objDB = new DBConnect();
-            String sql = "SELECT COUNT(*) FROM Login WHERE username = '" + username + "' AND password = '" + password + "'";
-            SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
-            SqlCommand retrieve = new SqlCommand(sql);
-            int userCount = (int)objDB.ExecuteScalarFunction(retrieve);
-            objDB.CloseConnection();*/
             try
             {
                 DBConnect objDB = new DBConnect();
-                String sql = "SELECT COUNT(*) FROM Login WHERE username = '" + username + "' AND password = '" + password + "'";
+                storedProceduralCommand command = new storedProceduralCommand();
                 SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
-                SqlCommand retrieve = new SqlCommand(sql);
-                userCount = (int)objDB.ExecuteScalarFunction(retrieve);
+                userCount = (int)objDB.ExecuteScalarFunction(command.checkLogin(username, password));
+                objDB.CloseConnection();
                 cookieName = objDB.GetDataSet(name).Tables[0].Rows[0]["fname"].ToString();
                 objDB.CloseConnection();
             }

@@ -10,6 +10,16 @@ namespace DatingAppLibrary
 {
     public class storedProceduralCommand
     {
+        //Use this to check for login credential
+        public SqlCommand checkLogin(string username, string password)
+        {
+            SqlCommand check = new SqlCommand("checkLogin");
+            check.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+            check.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+            check.CommandType = CommandType.StoredProcedure;
+            return check;
+        }
+
         //Use this to insert data into DatingProfile Table
         public SqlCommand getInsertCommand(string username, string name, string age, string occupation, string address, string email, string phone, string height, string favorite, string dislike, string goal, string commitment, string description, string photo, string birthday)
         {
