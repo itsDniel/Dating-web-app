@@ -1,0 +1,5 @@
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\bin\Release\DatingAppLibrary.dll
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\bin\Release\DatingAppLibrary.pdb
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\obj\Release\DatingAppLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\obj\Release\DatingAppLibrary.dll
+C:\Users\Daniel\Documents\GitHub\Dating-web-app\Dating-app\DatingAppLibrary\obj\Release\DatingAppLibrary.pdb

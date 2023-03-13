@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Util
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatingAppLibrary", "DatingAppLibrary\DatingAppLibrary.csproj", "{C70FD8AE-16F8-4B97-A857-BD1DC2895E6A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "project1_homepage", "..\..\Student-Registration\StudentRegistration\project1_homepage\project1_homepage.csproj", "{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C70FD8AE-16F8-4B97-A857-BD1DC2895E6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C70FD8AE-16F8-4B97-A857-BD1DC2895E6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C70FD8AE-16F8-4B97-A857-BD1DC2895E6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E860CE-D694-4DC1-ACFF-7FDD348115F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
