@@ -106,8 +106,8 @@ namespace Dating_app
             String password = passWordtxt.Text;
             String cookieName = " ";
             int userCount = 0;
-            //try
-            //{
+            try
+            {
                 DBConnect objDB = new DBConnect();
                 storedProceduralCommand command = new storedProceduralCommand();
                 SqlCommand name = new SqlCommand("SELECT fname FROM Login WHERE username = '" + username + "'");
@@ -115,12 +115,12 @@ namespace Dating_app
                 objDB.CloseConnection();
                 cookieName = objDB.GetDataSet(name).Tables[0].Rows[0]["fname"].ToString();
                 objDB.CloseConnection();
-            //}
-            /*catch(Exception ex)
+            }
+            catch(Exception ex)
             {
                 loginTest.Text = "You Must Enter Your Credential";
                 return;
-            }*/
+            }
             if(userCount > 0)
             {
                 HttpCookie uname = new HttpCookie("Username");
